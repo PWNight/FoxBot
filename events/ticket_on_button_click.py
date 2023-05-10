@@ -17,7 +17,7 @@ class ButtonClick(commands.Cog):
 
     @commands.Cog.listener()
     async def on_button_click(self, inter):
-        #Техническая информация для тикетов
+        #Техническая информация для тикетов.
         guild = self.client.get_guild(inter.guild.id)
         ticket_num = shortuuid.ShortUUID().random(length=6)
         logchannel = self.client.get_channel(939513221046472744) # ID канала с логами.
@@ -26,7 +26,7 @@ class ButtonClick(commands.Cog):
         staffrole = discord.utils.get(guild.roles,id=939476433196171324)
         internrole = discord.utils.get(guild.roles,id=995056541734539354)
         
-        #Текстовая информация для тикетов
+        #Текстовая информация для тикетов.
         res = '<:phoenix_verify:953725334770040953> Обращение создано. Ожидайте пинга в нужном канале.' # ваш вывод сообщение что человек получил роль
         resno = '<:phoenix_warn:953725334736502784> У вас уже есть открытое обращение. Вы не можете открыть обращение, пока предыдущее не будет закрыто.'
         memberop = inter.author
