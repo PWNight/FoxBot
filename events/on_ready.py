@@ -28,13 +28,13 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
-                custom_id = 'discord_open',
+                custom_id = 'discord_openticket',
                 emoji= '<:discord:856561477033263124>'
             )
         row2 = Button(
                 style = discord.ButtonStyle.green,
                 label = 'Minecraft',
-                custom_id = 'minecraft_open',
+                custom_id = 'minecraft_openticket',
                 emoji= '<:minecraft:856561476873355316>'
             )
         view=View()

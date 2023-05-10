@@ -2,7 +2,6 @@ import disnake as discord
 from disnake.ext import commands
 from os import listdir
 from util.logger import Logger
-from api.server.dataIO import fileIO
 from api.check import utils
 from api.server import main
 from configs import config
@@ -124,12 +123,6 @@ async def lunload(ctx, extension):
 async def lreload(ctx, extension):
     client.reload_extension(f"logs.{extension}")
     await ctx.reply(embed = main.done(ctx.guild, f"Лог `{extension}` был  перезагружен."))
-
-@client.event
-async def on_command(command):
-	info = fileIO("data/db/stats.json", "load")
-	info["Commands_used"] = info["Commands_used"] + 1
-	fileIO("data/db/stats.json", "save", info)
 
 # ? -----------------
 # ? | UTIL CATEGORY |
