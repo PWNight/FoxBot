@@ -1,0 +1,44 @@
+import disnake as discord
+from disnake.ext import commands
+from api.check import utils, block
+from api.server import base, main
+
+
+class Moder(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.slash_command(name='очистить', description='💬 Очищает указанное количество сообщений в чате.', test_guilds=[921483461016031263])
+    @block.block()
+    @commands.has_permissions(manage_messages=True)
+    async def clear(inter, amount: int):
+        await inter.channel.purge(limit=amount)
+        await inter.send(content=f'💬 Сообщения очищены.', ephemeral=True)
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def addemoji(self, ctx, id:int):
+        msg = await ctx.channel.fetch_message(id)
+        await msg.add_reaction('📰')
+        await msg.add_reaction('📢')
+        await msg.add_reaction('📆')
+        await msg.add_reaction('🔓')
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def addshizemoji(self, ctx, id:int):
+        msg = await ctx.channel.fetch_message(id)
+        await msg.add_reaction('🗿')
+    @commands.slash_command(name='лс', description='💬 Отправляет сообщение в ЛС участника.', test_guilds=[921483461016031263])
+    @commands.has_permissions(manage_messages=True) 
+    async def dm(inter, user: discord.User, *, message: str):
+        try:
+            await user.send(message)
+            await inter.send(f"\✉️ Сообщение отправлено **{user}**", ephemeral=True)
+        except discord.Forbidden:
+            await inter.send("\✉️ Не удалось отправить сообщение, возможно указанный пользователь отключил возможность отправлять личные сообщения с данного сервера.", ephemeral=True)
+    
+
+def setup(client):
+    client.add_cog(Moder(client))
