@@ -41,16 +41,6 @@ class OnReady(commands.Cog):
         view.add_item(row)
         view.add_item(row2)
         await msga.edit(embed = emb, view=view)
-
-#Организация (Пример кода)
-#        msg2 = await chnl1.fetch_message(1045184416714076292)
-#
-#        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'guild2', emoji= '🇯🇵')
-#
-#        viewverify=View()
-#        viewverify.add_item(verify)
-#        await msg2.edit(view=viewverify)
-
         self.status_task.start() 
 
     @tasks.loop(minutes = 0.2)
