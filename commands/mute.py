@@ -1,8 +1,6 @@
 import disnake as discord
 from disnake.ext import commands
-from api.check import utils, block
-from api.server import base, main
-from api.check import block, support, utils
+from api.server import main
 
 class Mute(commands.Cog):
 
@@ -11,7 +9,6 @@ class Mute(commands.Cog):
 
     @commands.cooldown(1, 60, commands.BucketType.guild)       
     @commands.slash_command(name="таймаут", description="📛 Выдаёт тайм-аут указанному пользователю.", test_guilds=[921483461016031263])
-    @block.block()
     @commands.has_permissions(manage_messages=True)
     async def timeout(self, inter, member: discord.Member, time, *, reason):
         time_conversion = {

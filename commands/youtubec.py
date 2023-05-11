@@ -2,8 +2,7 @@ import disnake as discord
 import urllib
 from disnake.ext import commands
 from urllib.parse import quote
-from api.check import utils, block
-from api.server import base, main
+from api.server import main
 
 
 class Youtubec(commands.Cog):
@@ -12,7 +11,6 @@ class Youtubec(commands.Cog):
         self.client = client
 
     @commands.slash_command(name="комментарий", description="📺 Делает введённый текст в виде коментария на ютубе.", test_guilds=[921483461016031263])
-    @block.block()
     async def comment(self, inter, *, comment, member = None):
         if not member:
             member = inter.author

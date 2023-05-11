@@ -1,6 +1,5 @@
 import disnake as discord
 from disnake.ext import commands
-from api.check import utils, block
 from api.server import base, main
 
 
@@ -10,7 +9,6 @@ class Avatar(commands.Cog):
         self.client = client
 
     @commands.slash_command(name="аватар", description="👥 Показывает аватар пользователя.", test_guilds=[921483461016031263])
-    @block.block()
     async def avatar(self, inter, member: discord.Member = None):
         send = inter.response.send_message
         if not member:

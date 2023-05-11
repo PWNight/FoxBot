@@ -1,6 +1,5 @@
 import disnake as discord
 from disnake.ext import commands
-import mctools
 from mctools import  RCONClient
 
 

@@ -1,8 +1,7 @@
 import disnake as discord
 import random
 from disnake.ext import commands
-from api.check import utils, block
-from api.server import base, main
+from api.server import main
 
 
 class Ship(commands.Cog):
@@ -11,7 +10,6 @@ class Ship(commands.Cog):
         self.client = client
 
     @commands.slash_command(name="шип", description="💞 Расчитывает процент шипперства между указанными пользователями", test_guilds=[921483461016031263])
-    @block.block()
     async def ship(self, inter, user_1 : discord.Member, user_2 : discord.Member):
         try:
             embed = discord.Embed(color = 0xFFA500)

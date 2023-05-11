@@ -26,10 +26,6 @@ client = commands.Bot(
 # ? | LOADING COGS |
 # ? ----------------
 
-for filename in listdir("./cogs/"):
-    if filename.endswith(".py"):
-        client.load_extension(f"cogs.{filename[:-3]}")
-
 for filename in listdir("./commands/"):
     if filename.endswith(".py"):
         client.load_extension(f"commands.{filename[:-3]}")
@@ -42,25 +38,6 @@ for filename in listdir("./commands/"):
 for filename in listdir("./events/"):
     if filename.endswith(".py"):
         client.load_extension(f"events.{filename[:-3]}")
-
-
-@client.command()
-@utils.developer()
-async def load(ctx, extension):
-    client.load_extension(f"cogs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Модуль `{extension}` был загружен."))
-
-@client.command()
-@utils.developer()
-async def unload(ctx, extension):
-    client.unload_extension(f"cogs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Модуль `{extension}` был отключен."))
-
-@client.command()
-@utils.developer()
-async def reload(ctx, extension):
-    client.reload_extension(f"cogs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Модуль `{extension}` был перезагружен."))
     
 # * ----------------
 

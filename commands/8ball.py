@@ -1,8 +1,7 @@
 import disnake as discord
 import random
 from disnake.ext import commands
-from api.check import utils, block
-from api.server import base, main
+from api.server import main
 
 
 class Ball(commands.Cog):
@@ -11,7 +10,6 @@ class Ball(commands.Cog):
         self.client = client
 
     @commands.slash_command(name="шар", description="🔍 Предскажет исход события без смс и регистрации", test_guilds=[921483461016031263])
-    @block.block()
     async def ball(self, inter, question: str):
         send = inter.response.send_message
         answer = {

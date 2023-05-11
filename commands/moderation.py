@@ -1,7 +1,5 @@
 import disnake as discord
 from disnake.ext import commands
-from api.check import utils, block
-from api.server import base, main
 
 
 class Moder(commands.Cog):
@@ -10,7 +8,6 @@ class Moder(commands.Cog):
         self.client = client
 
     @commands.slash_command(name='очистить', description='💬 Очищает указанное количество сообщений в чате.', test_guilds=[921483461016031263])
-    @block.block()
     @commands.has_permissions(manage_messages=True)
     async def clear(inter, amount: int):
         await inter.channel.purge(limit=amount)
