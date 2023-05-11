@@ -88,8 +88,16 @@ class Embed(commands.Cog):
                             ptext = f'{ptext}'
                 else:
                     ptext = None
+            if not title:
+                title = " "
+            if not description:
+                description = " "
             if not simple:
                 em = discord.Embed(title=title, description=description, color=color)
+            #if not title:
+            #    em = discord.Embed(description=description, color=color)
+            #if not description:
+            #    em = discord.Embed(title=title, color=color)
             else:
                 await ctx.message.delete()
                 if not channel:
