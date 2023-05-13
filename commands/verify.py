@@ -9,6 +9,7 @@ class Verify(commands.Cog):
         self.client = client
 
     @commands.slash_command(name="верификация", description="Добавляет игрока в вайтлист", test_guilds=[921483461016031263])
+    @commands.has_permissions(manage_messages=True)
     async def givecurator(self, inter, member: discord.Member, nickname: str):
         guild = self.client.get_guild(921483461016031263)
         role = discord.utils.get(guild.roles, id=1028254807129083954)

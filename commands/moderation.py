@@ -15,7 +15,7 @@ class Moder(commands.Cog):
 
 
     @commands.slash_command(name='лс', description='💬 Отправляет сообщение в ЛС участника.', test_guilds=[921483461016031263])
-    @commands.has_permissions(manage_messages=True) 
+    @commands.has_permissions(administrator=True) 
     async def dm(inter, user: discord.User, *, message: str):
         try:
             await user.send(message)

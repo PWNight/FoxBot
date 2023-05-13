@@ -7,7 +7,8 @@ class Embed(commands.Cog):
     def __init__(self, client):
         self.client = client
     @commands.command()
-    async def say2(self, ctx, *, msg: str = None):
+    @commands.has_permissions(administrator=True)
+    async def guildsetup(self, ctx, *, msg: str = None):
         embed=discord.Embed(description="🔻 Нажмите на кнопку ниже, чтобы отправить заявку на создание организации.", color = 0x2f3136)
         await ctx.send(embed=embed)
     @commands.command()
