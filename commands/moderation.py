@@ -13,20 +13,7 @@ class Moder(commands.Cog):
         await inter.channel.purge(limit=amount)
         await inter.send(content=f'💬 Сообщения очищены.', ephemeral=True)
 
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def addemoji(self, ctx, id:int):
-        msg = await ctx.channel.fetch_message(id)
-        await msg.add_reaction('📰')
-        await msg.add_reaction('📢')
-        await msg.add_reaction('📆')
-        await msg.add_reaction('🔓')
 
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def addshizemoji(self, ctx, id:int):
-        msg = await ctx.channel.fetch_message(id)
-        await msg.add_reaction('🗿')
     @commands.slash_command(name='лс', description='💬 Отправляет сообщение в ЛС участника.', test_guilds=[921483461016031263])
     @commands.has_permissions(manage_messages=True) 
     async def dm(inter, user: discord.User, *, message: str):

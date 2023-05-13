@@ -4,6 +4,7 @@ import asyncio
 import os
 from disnake import File
 from disnake.ui import Button, View
+from api.server.dataIO import fileIO
 import shortuuid
 shortuuid.uuid()
 verifymembers = []
@@ -82,7 +83,6 @@ class ButtonClick(commands.Cog):
                 await inter.send(resno, ephemeral = True)
                 return
             if not memberop.id in voprosmembers:
-                await inter.send(res, ephemeral = True)
                 global countervopros
                 countervopros += 1
                 voprosmembers.append(memberop.id)
