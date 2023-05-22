@@ -43,7 +43,7 @@ class OnReady(commands.Cog):
         await ticketmsg.edit(embed = emb, view=view)
 
         notifychnl = await self.client.fetch_channel(939438241290022924) # ID канала, где при нажатии на реакцию создаётся тикет.
-        notifymsg = await notifychnl.fetch_message(1107025615141482538)
+        notifymsg = await notifychnl.fetch_message(1107322507473723412)
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> \📰 — оповещения о новостях проекта в канале <#939438314954588201>.
         > \📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
         
@@ -87,7 +87,7 @@ class OnReady(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def notifysetup(self,ctx):
         emb1 = discord.Embed(title="", colour = 0xecac4b)
-        emb1.set_image(url='https://cdn.discordapp.com/attachments/939510519629479946/1024399934423847032/photo1664023949_1.jpeg')
+        emb1.set_image(url='https://media.discordapp.net/attachments/1053188377651970098/1107317077364178944/d7b96329cadf7c8b.png')
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> \📰 — оповещения о новостях проекта в канале <#939438314954588201>.
         > \📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
         
