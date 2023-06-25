@@ -177,9 +177,9 @@ class OnReady(commands.Cog):
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "minecraft_annonces":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191696112898068> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191696112898068> успешно снята.'
-            minecraftanoncesrole = discord.utils.get(guild.roles, id=1095191696112898068)
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926> успешно выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926> успешно снята.'
+            minecraftanoncesrole = discord.utils.get(guild.roles, id=951475369041616926)
             if minecraftanoncesrole in memberop.roles:
                 await memberop.remove_roles(minecraftanoncesrole)
                 await inter.send(resno, ephemeral = True)
