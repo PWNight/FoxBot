@@ -40,7 +40,21 @@ class OnReady(commands.Cog):
         view=View()
         view.add_item(row)
         view.add_item(row2)
-        await ticketmsg.edit(embed = emb, view=view)
+        await ticketmsg.edit(embed = emb, view=view)\
+        
+        verifychnl = await self.client.fetch_channel(1111325108217315368) # ID канала, где при нажатии на реакцию создаётся тикет.
+        verifymsg = await verifychnl.fetch_message(1125044148890779720)
+
+        emb = discord.Embed(description= '\🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
+        row = Button(
+                style = discord.ButtonStyle.blurple,
+                label = 'Подать заявку',
+                custom_id = 'verify',
+                emoji= '<:message:1105891497255108679>'
+            )
+        view=View()
+        view.add_item(row)
+        await verifymsg.edit(embed = emb, view=view)
 
         notifychnl = await self.client.fetch_channel(939438241290022924) # ID канала, где при нажатии на реакцию создаётся тикет.
         notifymsg = await notifychnl.fetch_message(1107322507473723412)
