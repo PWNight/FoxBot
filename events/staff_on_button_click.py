@@ -12,7 +12,7 @@ counterverify = 0
 voprosmembers = []
 countervopros = 0
 
-class ButtonClick(commands.Cog):
+class StaffButtonClick(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -128,3 +128,6 @@ class ButtonClick(commands.Cog):
                         voprosmembers.remove(memberop.id)
                         os.remove(f'{ticket_systemname}.txt')
                         return
+                    
+def setup(client):
+    client.add_cog(StaffButtonClick(client))
