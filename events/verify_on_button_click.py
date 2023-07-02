@@ -1,11 +1,9 @@
 import disnake as discord
 from disnake.ext import commands
 import asyncio
-import os
-from disnake import File
 from disnake.ui import Button, View
-from api.server.dataIO import fileIO
 from disnake import TextInputStyle
+from mctools import  RCONClient
 
 verifymembers = []
 counterverify = 0
@@ -20,10 +18,11 @@ class VerifyButtonClick(commands.Cog):
         guild = self.client.get_guild(inter.guild.id)
         logchannel = self.client.get_channel(1053188377651970098) # ID канала с логами.
         memberop = inter.author
+        guild = self.client.get_guild(921483461016031263)
+        role = discord.utils.get(guild.roles, id=1028254807129083954)
         
         #Текстовая информация для тикетов.
-        res = '<:evilsmile:1105881397597585500> Обращение создано. Ожидайте пинга в нужном канале.'
-        resno = '<:error:1105878281246482484> У вас уже есть открытое обращение. Вы не можете открыть обращение, пока предыдущее не будет закрыто.'
+        resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. Ожидайте решения по предыдущей заявке, чтобы открыть новую.'
 
         if inter.component.custom_id == "verify":
             if memberop.id in verifymembers:
@@ -39,22 +38,22 @@ class VerifyButtonClick(commands.Cog):
                     components=[
                         discord.ui.TextInput(
                             label="Ваш никнейм",
-                            placeholder="Укажите ваш никнейм, с которого вы будете заходить на сервер.",
-                            custom_id="Nickname",
+                            placeholder="Никнейм на котором будете играть",
+                            custom_id="Никнейм",
                             style=TextInputStyle.short,
                             max_length=16,
                         ),
                         discord.ui.TextInput(
                             label="Ваш возраст",
                             placeholder="Укажите ваш возраст",
-                            custom_id="Ago",
+                            custom_id="Возраст",
                             style=TextInputStyle.short,
                             max_length=2,
                         ),
                         discord.ui.TextInput(
                             label="Расскажите немного о себе",
                             placeholder="Это необходимо для знакомства с вами",
-                            custom_id="About",
+                            custom_id="Об игроке",
                             style=TextInputStyle.paragraph,
                         ),
                     ],
@@ -65,7 +64,7 @@ class VerifyButtonClick(commands.Cog):
                     print("Неизвестная ошибка в коде верификации")
                     return 
                 else:
-                    await inter.response.send_message(content='Заявка отправлена.', ephemeral = True)
+                    await inter.response.send_message(content='<:minecraft_accept:1080779491875491882> Ваша заявка была отправлена. Решение по вашей заявке будет отправлено вам в ЛС.', ephemeral = True)
                     embinfo = discord.Embed(title=f'<:info:871310064135327775> Информация о заявке игрока {memberop.name}', color = 0x2f3136)
                     for key, value in inter.text_values.items():
                         embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)
@@ -73,13 +72,13 @@ class VerifyButtonClick(commands.Cog):
                             style = discord.ButtonStyle.green,
                             label = 'Одобрить заявку',
                             custom_id = 'accept_verify',
-                            emoji= '<:blurplelock:856563321321816104>'
+                            emoji= '<:minecraft_accept:1080779491875491882>'
                         )
                     row2 = Button(
                             style = discord.ButtonStyle.danger,
                             label = 'Отклонить заявку',
                             custom_id = 'deny_verify',
-                            emoji= '<:blurplelock:856563321321816104>'
+                            emoji= '<:minecraft_deny:1080779495386140684>'
                         )
                     view2=View()
                     view2.add_item(row)
@@ -92,21 +91,36 @@ class VerifyButtonClick(commands.Cog):
                     except asyncio.TimeoutError:
                         print("Неизвестная ошибка в коде репортов") 
                     else:
-                        if m.component.custom_id == "accept_report":
-                            embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Репорт закрыт.', colour=0x2f3136)
-                            embedth.add_field(name='ID:', value=f'`{ticket_num}`')
-                            embedth.add_field(name='Закрыт сотрудником:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
-                            embedth.add_field(name='Открыт модератором:', value=f'<:member:979406123587223562> `{memberop}`')  
-                            with open(f"report.txt", "a", encoding='utf8') as f:
-                                async for msg12 in channel2.history(limit = 100):
-                                    f.write(f"{msg12.created_at}:{msg12.author} ({msg12.author.id}): {msg12.content} \n")      
-                            await logchannel.send(embed=embedth,file=File(f'report.txt'))
-                            await channel2.delete()
-                            clsembed=discord.Embed(title="\📞 Служба обработки репортов.", description=f'Приветствую, модератор. \nВаш репорт закрыт сотрудником `{m.author}`.', colour = 0x2f3136)
-                            clsembed.set_thumbnail(url="https://cdn.discordapp.com/attachments/856561382484475904/979389736462458910/953725334627430411.png")
-                            clsembed.set_footer(text="PhoenixWorld by Найт#0550", icon_url="https://cdn.discordapp.com/avatars/921482377505673267/c39980246a73cc64a1052c36a7a72c0a.png?size=1024")
+                        if m.component.custom_id == "accept_verify":
+                            await msgtic.delete()
+                            await memberop.add_roles(role)
+                            pass
+                            HOST = '135.181.126.159'
+                            PORT = 25571
+                            rcon = RCONClient(HOST, port = PORT)
+                            if rcon.login('59d82888-5420-43b9-a58b-98c382061602'):
+                                rcon.command(f'verify {inter.text_values["Никнейм"]}')
+                                rcon.command(f'Добавление игрока в вайтлист')
+                                rcon.stop()
+                            embinfo = discord.Embed(title=f'<:info:871310064135327775> Заявка игрока {memberop.name}', description="### Статус заявки: <:minecraft_accept:1080779491875491882> Принята.", color = 0x2f3136)
+                            for key, value in inter.text_values.items():
+                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
+                            await logchannel.send(embed=embinfo)
+                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена! Теперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
+                            clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
-                            os.remove(f'report.txt')
+                            return
+                        if m.component.custom_id == "deny_verify":
+                            await msgtic.delete()
+                            embinfo = discord.Embed(title=f'<:info:871310064135327775> Заявка игрока {memberop.name}', description="### Статус заявки: <:minecraft_deny:1080779495386140684> Отклонена.", color = 0x2f3136)
+                            for key, value in inter.text_values.items():
+                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
+                            await logchannel.send(embed=embinfo)
+                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена. Возможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
+                            clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                            await memberop.send(embed = clsembed)
                             return
 
 def setup(client):
