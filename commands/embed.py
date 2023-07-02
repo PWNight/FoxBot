@@ -15,8 +15,6 @@ class Embed(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def say(self, ctx, *, msg: str = None):
         roleowner = discord.utils.get(ctx.guild.roles,id=922561682780332102) #Руководитель
-        roleadmin = discord.utils.get(ctx.guild.roles,id=995634349745651763) #Администратор
-        roleedit = discord.utils.get(ctx.guild.roles,id=1052919830463909918) #Редакция
 
         if msg:
             ptext = title = description = image = thumbnail = url = footer = author = color = simple = channel = foothericon = None
@@ -48,7 +46,7 @@ class Embed(commands.Cog):
                     foothericon = i.strip()[3:].strip()
 
             if ptext is title is description is image is thumbnail is url is footer is author is color is foothericon is None and 'field=' not in msg:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     return await ctx.send(content=msg)
     
                 else:
@@ -68,7 +66,7 @@ class Embed(commands.Cog):
             if not color:
                 color = 0x2f3136
             if ptext:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     if ptext == 'here' or ptext == 'everyone' or ptext.startswith('<@'):
                         if ptext == 'here':
                             ptext = '@here'
@@ -104,7 +102,7 @@ class Embed(commands.Cog):
                 if not channel:
                     await ctx.send(simple)
                 else:
-                    if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                    if roleowner in ctx.author.roles  :
                         channel = channel[2:]
                         channel = channel[:-1]
                         channel = self.client.get_channel(int(channel))
@@ -116,7 +114,7 @@ class Embed(commands.Cog):
                 em = discord.Embed(title=title, description=description, url=url, color=color)
             if author:
                 print(len(author))
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     if author == '-':
                         pass
                     else:
@@ -137,7 +135,7 @@ class Embed(commands.Cog):
             if thumbnail:
                 em.set_thumbnail(url=thumbnail)
             if footer:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     if footer == '-':
                         pass
                     else:
@@ -164,7 +162,7 @@ class Embed(commands.Cog):
                 await ctx.message.delete()
                 await ctx.send(content=ptext, embed=em)
             else:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     channel = channel[2:]
                     channel = channel[:-1]
                     channel = self.client.get_channel(int(channel))
@@ -182,8 +180,6 @@ class Embed(commands.Cog):
     async def edit(self, ctx,msg1, *, msg: str = None):
         msg12 = await ctx.channel.fetch_message(msg1)
         roleowner = discord.utils.get(ctx.guild.roles,id=922561682780332102) #Руководитель
-        roleadmin = discord.utils.get(ctx.guild.roles,id=995634349745651763) #Администратор
-        roleedit = discord.utils.get(ctx.guild.roles,id=1052919830463909918) #Редакция
 
         if msg:
             ptext = title = description = image = thumbnail = url = footer = author = color = simple = channel = foothericon = None
@@ -236,7 +232,7 @@ class Embed(commands.Cog):
                     foothericon = i.strip()[3:].strip()
     
             if ptext is title is description is image is thumbnail is url is footer is author is color is foothericon is None and 'field=' not in msg:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     return await ctx.send(content=msg)
     
                 else:
@@ -263,7 +259,7 @@ class Embed(commands.Cog):
             if not color:
                 color = old_em.color
             if ptext:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles  :
                     if ptext == 'here' or ptext == 'everyone' or ptext.startswith('<@'):
                         if ptext == 'here':
                             ptext = '@here'
@@ -292,7 +288,7 @@ class Embed(commands.Cog):
             if url:
                 em = discord.Embed(title=title, description=description, url=url, color=color)
             if author:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles: 
                     if author == '-':
                         pass
                     else:
@@ -319,7 +315,7 @@ class Embed(commands.Cog):
             if thumbnail:
                 em.set_thumbnail(url=thumbnail)
             if footer:
-                if roleowner in ctx.author.roles or roleadmin in ctx.author.roles or roleedit in ctx.author.roles:
+                if roleowner in ctx.author.roles:
                     if footer == '-':
                         pass
                     else:
