@@ -2,7 +2,8 @@ import disnake as discord
 from disnake.ext import commands, tasks
 from disnake.ui import Button, View
 import time
-
+import mcstatus
+from mcstatus import MinecraftServer
 
 class OnReady(commands.Cog):
     def __init__(self, client):
@@ -56,7 +57,7 @@ class OnReady(commands.Cog):
         view.add_item(row)
         await verifymsg.edit(embed = emb, view=view)
 
-        notifychnl = await self.client.fetch_channel(939438241290022924) # ID канала, где при нажатии на реакцию создаётся тикет.
+        notifychnl = await self.client.fetch_channel(939438241290022924)
         notifymsg = await notifychnl.fetch_message(1107322507473723412)
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
         > 📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
@@ -82,7 +83,41 @@ class OnReady(commands.Cog):
         view.add_item(row2)
         view.add_item(row3)
         await notifymsg.edit(embed = emb2, view=view)
-        self.status_task.start() 
+
+        statuschnl = await self.client.fetch_channel(939438241290022924) 
+        statusmsg = await statuschnl.fetch_message(1126854219295641611)
+        server = MinecraftServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
+        querystatus = server.query()
+
+        embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
+        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
+        embed.add_field(name = 'Описание:',value = f'''FoxWorld Vanilla - наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''',inline = False)
+        embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
+        embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
+        embed.set_footer(text='Информация обновляется раз в 20 секунд.')
+        view=View()
+        row = Button(
+                style = discord.ButtonStyle.gray,
+                label = 'Cписок игроков',
+                custom_id = 'playerlist',
+                emoji= '<:member:979406123587223562>'
+            )
+        view.add_item(row)
+        await statusmsg.edit(embed = embed, view = view)
+        self.status_task.start()   
+    @commands.Cog.listener()
+    async def on_button_click(self, inter):
+        if inter.component.custom_id == "playerlist":
+            memberop = inter.author
+            server = MinecraftServer.lookup("135.181.126.159:25566")
+            status = server.query()
+            if status.players.online == 0:
+                await inter.send('<:member:979406123587223562> **Список игроков:** \nНа сервере нету игроков.', ephemeral = True)
+            else:
+                status.players = '\n'.join(status.players.names)
+                await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
+                return
 
     @tasks.loop(minutes = 0.2)
     async def status_task(self):
@@ -90,122 +125,27 @@ class OnReady(commands.Cog):
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def notifysetup(self,ctx):
-        emb1 = discord.Embed(title="", colour = 0xecac4b)
-        emb1.set_image(url='https://media.discordapp.net/attachments/1053188377651970098/1107317077364178944/d7b96329cadf7c8b.png')
-        emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
-        > 📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
-        
-        > 📦 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
-        await ctx.send(embed=emb1)
-        await ctx.send(embed=emb2)
+        statuschnl = await self.client.fetch_channel(939438241290022924) 
+        statusmsg = await statuschnl.fetch_message(1126854219295641611)
+        server = MinecraftServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
+        querystatus = server.query()
 
-
-    @commands.Cog.listener()
-    async def on_button_click(self, inter):
-        #Техническая информация для выдачи ролей.
-        guild = self.client.get_guild(inter.guild.id)
-        memberop = inter.author
-
-        if inter.component.custom_id == "news":
-                chooseemb = discord.Embed(title='📰 Выберите сервер, по которому желаете получать новости.', color = 0x607aff)
-                row = Button(
-                        style = discord.ButtonStyle.blurple,
-                        label = 'Discord',
-                        custom_id = 'discord_news',
-                        emoji= '<:discord:856561477033263124>'
-                    )
-                row2 = Button(
-                        style = discord.ButtonStyle.green,
-                        label = 'Minecraft',
-                        custom_id = 'minecraft_news',
-                        emoji= '<:minecraft:856561476873355316>'
-                    )
-                view=View()
-                view.add_item(row)
-                view.add_item(row2)
-                await inter.send(embed=chooseemb, view = view, ephemeral = True)
-                return
-        if inter.component.custom_id == "discord_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191584590549052> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191584590549052> успешно снята.'
-            discordnewsrole = discord.utils.get(guild.roles, id=1095191584590549052)
-            if discordnewsrole in memberop.roles:
-                await memberop.remove_roles(discordnewsrole)
-                await inter.send(resno, ephemeral = True)
-                return
-            if not discordnewsrole in memberop.roles:
-                await memberop.add_roles(discordnewsrole)
-                await inter.send(resyes, ephemeral = True)
-        if inter.component.custom_id == "minecraft_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191555972804739> успешно снята.'
-            minecraftnewsrole = discord.utils.get(guild.roles, id=1095191555972804739)
-            if minecraftnewsrole in memberop.roles:
-                await memberop.remove_roles(minecraftnewsrole)
-                await inter.send(resno, ephemeral = True)
-                return
-            if not minecraftnewsrole in memberop.roles:
-                await memberop.add_roles(minecraftnewsrole)
-                await inter.send(resyes, ephemeral = True)
-
-        if inter.component.custom_id == "events":
-                chooseemb = discord.Embed(title='📆 Выберите сервер, по которому желаете получать анонсы.', color = 0x607aff)
-                row = Button(
-                        style = discord.ButtonStyle.blurple,
-                        label = 'Discord',
-                        custom_id = 'discord_annonces',
-                        emoji= '<:discord:856561477033263124>'
-                    )
-                row2 = Button(
-                        style = discord.ButtonStyle.green,
-                        label = 'Minecraft',
-                        custom_id = 'minecraft_annonces',
-                        emoji= '<:minecraft:856561476873355316>'
-                    )
-                view=View()
-                view.add_item(row)
-                view.add_item(row2)
-                await inter.send(embed=chooseemb, view = view, ephemeral = True)
-                return
-        if inter.component.custom_id == "discord_annonces":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191824898990151> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191824898990151> успешно снята.'
-            discordannoncesrole = discord.utils.get(guild.roles, id=1095191824898990151)
-            if discordannoncesrole in memberop.roles:
-                await memberop.remove_roles(discordannoncesrole)
-                await inter.send(resno, ephemeral = True)
-                return
-            if not discordannoncesrole in memberop.roles:
-                await memberop.add_roles(discordannoncesrole)
-                await inter.send(resyes, ephemeral = True)
-
-        if inter.component.custom_id == "minecraft_annonces":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926> успешно снята.'
-            minecraftanoncesrole = discord.utils.get(guild.roles, id=951475369041616926)
-            if minecraftanoncesrole in memberop.roles:
-                await memberop.remove_roles(minecraftanoncesrole)
-                await inter.send(resno, ephemeral = True)
-                return
-            if not minecraftanoncesrole in memberop.roles:
-                await memberop.add_roles(minecraftanoncesrole)
-                await inter.send(resyes, ephemeral = True)
-
-        if inter.component.custom_id == "access":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1035615119213854803> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1035615119213854803> успешно снята.'
-            role = discord.utils.get(guild.roles, id=1035615119213854803)
-            if role in memberop.roles:
-                role = discord.utils.get(guild.roles, id=1035615119213854803)
-                await memberop.remove_roles(role)
-                await inter.send(resno, ephemeral = True)
-                return
-            if not role in memberop.roles:
-                await memberop.add_roles(role)
-                await inter.send(resyes, ephemeral = True)
+        embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
+        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
+        embed.add_field(name = 'Описание:',value = f'''FoxWorld Vanilla - наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''',inline = False)
+        embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
+        embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
+        embed.set_footer(text='Информация обновляется раз в 20 секунд.')
+        view=View()
+        row = Button(
+                style = discord.ButtonStyle.gray,
+                label = 'Cписок игроков',
+                custom_id = 'playerlist',
+                emoji= '<:member:979406123587223562>'
+            )
+        view.add_item(row)
+        await statusmsg.edit(embed = embed, view = view)
 
 def setup(client):
     client.add_cog(OnReady(client))
