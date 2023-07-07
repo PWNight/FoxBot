@@ -56,7 +56,6 @@
     "MISSING_COMMANDS": "Команда не найдена",
     "ERROR_CD": "У вас задержка на данную команду. Подождите **{0}** минут(-ы)",
 
-    "CHECK_BLOCK": "\nВы были заблокированы в **Better** \nИнформация о блокировке: \n\nПричина: **{0}** \nМодератор: **{1}** ``({2})`` \nДата: **{3}**",
     "BBAN_SUCESS": "Пользователь **{0}** был успешно заблокирован",
     "BBAN_ERROR": "Пользователь **{0}** уже заблокирован!",
     "BUNBAN_SUCESS": "Пользователь **{0}** был успешно разблокирован",
@@ -153,9 +152,7 @@
 
     "WINK_ARGS": "{0} подмигивает {1}",
     "WINK_NOARGS": "{0} подмигивает кому-то...",
-
-    "BOT_TITLE": "> <:better_servers:937110288447193089> ● Серверов: {0} \n> <:better_users:937110288669483059> ● Пользователей: {1} \n> <:better_command:937110288728211487> ● Использованных команд: {2} \n\n**Ссылки** \n:book: Пригласить Бота: [click](https://discord.com/oauth2/authorize?client_id=937410000710684702&scope=bot&permissions=805314622) \n:bookmark: Дискорд группа: [click](https://discord.gg/zKPzHaBYMW) \n:bookmark_tabs: Проголосовать: [click](https://bots.server-discord.com/937410000710684702) \n:book: Веб-сайт: [click](https://betterbot.ru)",
-
+    
     "AVATAR_FIELD_TITLE": "Аватар",
     "AVATAR_FIELD_VALUE": "Принадлежащий пользователю: {0}",
     "AVATAR_FIELD_VALUE1": "Пользователь не имеет аватара",

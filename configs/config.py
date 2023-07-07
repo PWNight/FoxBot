@@ -4,8 +4,8 @@ token = 'OTIxNDgyMzc3NTA1NjczMjY3.G3wvA3.g-f_A0XqVkRd3tK0KwcxZLeDjY5GTS1TWeXKxw'
 # OTQyMzc2Mzg3ODMzMTA2NDUy.YgjmZw.6WA7I1R4ZIBZZmXdvgpD_szowSE | Phoenix Annonces
 # OTIxNDgyMzc3NTA1NjczMjY3.G3wvA3.g-f_A0XqVkRd3tK0KwcxZLeDjY5GTS1TWeXKxw | Phoenix
 # MTAxMDgwNTM0MDU3NDU5NzE4Mg.GQFZI6.W7_EOmgRqvNBqidBXjG2sZ6WBwzjoInrFX4IJA | Phoenix Beta
-version = '4.6' # Версия бота
-developer = 'Найт#0550'
+version = '4.9.1' # Версия бота
+developer = 'PWNight'
 
 # База-данных
 
@@ -16,9 +16,9 @@ currency = '<:phoenixcoin:1010821868221108275> ' # Стандартный эмо
 
 # Эмодзи
 
-okay = '<:phoenix_verify:953725334770040953> ' # Эмодзи для успешных выполнений
-warning = '<:phoenix_warn:953725334736502784> ' # Эмодзи для предупреждений
-error = '<:phoenix_error:954067706074775622> ' # Эмодзи для ошибок
+okay = '<:minecraft_accept:1080779491875491882> ' # Эмодзи для успешных выполнений
+warning = '<:error:1105878281246482484> ' # Эмодзи для предупреждений
+error = '<:minecraft_deny:1080779495386140684> ' # Эмодзи для ошибок
 
 onl = '<:phoenix_onl:953725336825258015> '
 idl = '<:phoenix_idle:953725337051742228> '
