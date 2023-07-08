@@ -9,4 +9,4 @@ disnake
 async-timeout
 asyncio
 shortuuid
-mctools
+mcstatus

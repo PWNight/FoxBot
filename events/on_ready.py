@@ -3,7 +3,7 @@ from disnake.ext import commands, tasks
 from disnake.ui import Button, View
 import time
 import mcstatus
-from mcstatus import MinecraftServer
+from mcstatus import JavaServer 
 
 class OnReady(commands.Cog):
     def __init__(self, client):
@@ -86,7 +86,7 @@ class OnReady(commands.Cog):
 
         statuschnl = await self.client.fetch_channel(939438241290022924) 
         statusmsg = await statuschnl.fetch_message(1126854219295641611)
-        server = MinecraftServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
+        server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
         embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
@@ -109,8 +109,7 @@ class OnReady(commands.Cog):
     @commands.Cog.listener()
     async def on_button_click(self, inter):
         if inter.component.custom_id == "playerlist":
-            memberop = inter.author
-            server = MinecraftServer.lookup("135.181.126.159:25566")
+            server = JavaServer.lookup("135.181.126.159:25566")
             status = server.query()
             if status.players.online == 0:
                 await inter.send('<:member:979406123587223562> **Список игроков:** \nНа сервере нету игроков.', ephemeral = True)
@@ -127,7 +126,7 @@ class OnReady(commands.Cog):
 
         statuschnl = await self.client.fetch_channel(939438241290022924) 
         statusmsg = await statuschnl.fetch_message(1126854219295641611)
-        server = MinecraftServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
+        server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
         embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
