@@ -152,12 +152,12 @@ class Embed(commands.Cog):
                             else:
                                 em.set_footer(text=f"{footer}")
                 else:
-                    em.set_footer(text=f"FoxWorld ©️ 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                    em.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
             if not footer:
                 if foothericon:
-                    em.set_footer(text=f"FoxWorld ©️ 2023", icon_url=foothericon)
+                    em.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url=foothericon)
                 else:
-                    em.set_footer(text=f"FoxWorld ©️ 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                    em.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
             if not channel:
                 await ctx.message.delete()
                 await ctx.send(content=ptext, embed=em)
@@ -332,12 +332,12 @@ class Embed(commands.Cog):
                             else:
                                 em.set_footer(text=f"{footer}")
                 else:
-                    em.set_footer(text=f"FoxWorld ©️ 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                    em.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
             if not footer:
                 if foothericon:
                     em.set_footer(text=fo, icon_url=foothericon)
                 else:
-                    em.set_footer(text=f"FoxWorld ©️ 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                    em.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
             await ctx.message.delete()
             await msg12.edit(content=ptext, embed=em)
     
