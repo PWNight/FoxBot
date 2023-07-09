@@ -16,7 +16,7 @@ class VerifyButtonClick(commands.Cog):
     async def on_button_click(self, inter):
         #Техническая информация для тикетов.
         guild = self.client.get_guild(inter.guild.id)
-        logchannel = self.client.get_channel(1053188377651970098) # ID канала с логами.
+        logchannel = self.client.get_channel(1126156262216843394) # ID канала с логами.
         memberop = inter.author
         guild = self.client.get_guild(921483461016031263)
         role = discord.utils.get(guild.roles, id=1028254807129083954)
