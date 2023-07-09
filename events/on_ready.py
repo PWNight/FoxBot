@@ -60,7 +60,7 @@ class OnReady(commands.Cog):
         naborchnl = await self.client.fetch_channel(1126877107658707074) # ID канала, где при нажатии на реакцию создаётся тикет.
         nabormsg = await naborchnl.fetch_message(1127575031682183290)
 
-        emb = discord.Embed(description= '\🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
+        emb = discord.Embed(description= '\🔻 Нажмите на кнопку ниже, чтобы подать заявку в команду проекта.', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку в команду',
