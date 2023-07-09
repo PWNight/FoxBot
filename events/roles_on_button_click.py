@@ -27,6 +27,8 @@ class RolesButtonClick(commands.Cog):
         #Техническая информация для выдачи ролей.
         guild = self.client.get_guild(inter.guild.id)
         memberop = inter.author
+        newsrole = discord.utils.get(guild.roles, id=1095192294950436864)
+        anoncerole = discord.utils.get(guild.roles, id=1095191584590549052)
 
         if inter.component.custom_id == "news":
                 chooseemb = discord.Embed(title='📰 Выберите сервер, по которому желаете получать новости.', color = 0x607aff)
@@ -57,6 +59,7 @@ class RolesButtonClick(commands.Cog):
                 return
             if not discordnewsrole in memberop.roles:
                 await memberop.add_roles(discordnewsrole)
+                await memberop.add_roles(newsrole)
                 await inter.send(resyes, ephemeral = True)
         if inter.component.custom_id == "minecraft_news":
             resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739> успешно выдана.'
@@ -68,6 +71,7 @@ class RolesButtonClick(commands.Cog):
                 return
             if not minecraftnewsrole in memberop.roles:
                 await memberop.add_roles(minecraftnewsrole)
+                await memberop.add_roles(newsrole)
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "events":
@@ -99,6 +103,7 @@ class RolesButtonClick(commands.Cog):
                 return
             if not discordannoncesrole in memberop.roles:
                 await memberop.add_roles(discordannoncesrole)
+                await memberop.add_roles(anoncerole)
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "minecraft_annonces":
@@ -111,6 +116,7 @@ class RolesButtonClick(commands.Cog):
                 return
             if not minecraftanoncesrole in memberop.roles:
                 await memberop.add_roles(minecraftanoncesrole)
+                await memberop.add_roles(anoncerole)
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "access":
