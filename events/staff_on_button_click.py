@@ -31,22 +31,23 @@ class StaffButtonClick(commands.Cog):
         resno = '<:minecraft_deny:1080779495386140684> У вас уже есть открытое обращение. Вы не можете открыть обращение, пока предыдущее не будет закрыто.'
         memberop = inter.author
         emb1 = discord.Embed(title='''Добро пожаловать в службу набора кадров.''', description='''Мы рады, что вы решили вступить в нашу команду. Для начала, заполните следующую форму и мы приступим к обсуждению вашего вступления: 
-        \n1) Ваш никнейм, возраст, часовой пояс. 
-        \n2) Предпочитаемый сервер (Discord, Minecraft, ВК). 
-        \n3) Несколько слов о себе (о личных качествах, интересах и характере).
-        \n4) Опыт работы в выбранном направлении, творческие и технические навыки. 
-        \n5) Количество часов в день/неделю, которые вы готовы уделять работе.
-        \n\n* Обязательно используй перенос строки (`SHIFT` + `Enter`) при заполнении заявки.''', color = 0x2f3136)
+        \n`1)` Ваш никнейм, возраст, часовой пояс. 
+        \n`2)` Предпочитаемый сервер (Discord, Minecraft, ВК). 
+        \n`3)` Несколько слов о себе (о личных качествах, интересах и характере).
+        \n`4)` Опыт работы в выбранном направлении, творческие и технические навыки. 
+        \n`5)` Количество часов в день/неделю, которые вы готовы уделять работе.
+        \n\nОбязательно используйте перенос строки (`SHIFT` + `Enter`) при заполнении заявки.''', color = 0x2f3136)
         emb2 = discord.Embed(title='''Требования к кандидатам''', description='''Мы придерживаемся следующих основных критериев при рассмотрении заявки:
-        \n1) Возраст от 14 лет. Обязательно, заявки менее 14 лет не принимаются.
-        \n2) Умение коммуницировать с людьми. При работе в коллективе вам придётся общаться с другими работниками или с другими игроками, если вы выбрали то направление, где необходим этот навык.
-        \n3) Грамотность. Как минимум, вы должны уметь пользоваться автоисправлением ошибок в тексте, но в идеале хорошо знать русский язык.
-        \n4) Открытые личные сообщения, чтобы мы могли связаться с вами.
-        \n5) Отсутствие нарушений на проекте.
-        \n6) Не менее 100 отыгранных часов. Допускается не более 10 часов из 100 в АФК.''', color = 0x2f3136)
+        \n`1)` Возраст от 14 лет. Обязательно, заявки менее 14 лет не принимаются.
+        \n`2)` Умение коммуницировать с людьми. При работе в коллективе вам придётся общаться с другими работниками или с другими игроками, если вы выбрали то направление, где необходим этот навык.
+        \n`3)` Грамотность. Как минимум, вы должны уметь пользоваться автоисправлением ошибок в тексте, но в идеале хорошо знать русский язык.
+        \n`4)` Открытые личные сообщения, чтобы мы могли связаться с вами.
+        \n`5)` Отсутствие нарушений на проекте.
+        \n`6)` Не менее 100 отыгранных часов. Допускается не более 10 часов из 100 в АФК.
+        \n`7)` Необходимо быть участником Discord сервера не менее 3-х месяцев.''', color = 0x2f3136)
                 
         responceemb = discord.Embed(title='Когда мне ответят?', description=" Обращения разбираются в порядке очереди. В среднем обращения разбираются от 1 до 3-х часов в рабочие дни с 10:00 по 00:00. В выходные время ответа может быть дольше, но не более 9-ти часов. \n\nЕсли с момента отправки последнего сообщения прошло более 3-х часов, а вам не ответили - можете упомянуть <@&939476433196171324>. \nЕсли прошло более 6-ти часов - упоминайте <@&922561682780332102>.", color = 0x2f3136)
-        buttonembed = discord.Embed(title='', description='<:info:871310064135327775> Обращения закрываются сотрудниками кнопкой ниже.', color = 0x2f3136)
+        buttonembed = discord.Embed(title='', description='<:info:871310064135327775> Решение по заявкам в команду принимается руководством проекта.', color = 0x2f3136)
         if inter.component.custom_id == "nabor_kadrov":
             if memberop.id in voprosmembers:
                 await inter.send(resno, ephemeral = True)
@@ -86,6 +87,7 @@ class StaffButtonClick(commands.Cog):
                 global countervopros
                 countervopros += 1
                 voprosmembers.append(memberop.id)
+                await inter.send(res, ephemeral = True)
                 ticket_type = '💬 `Заявка в направление модерации`'
                 ticket_systemname= 'nabor_moder'
                 mainCategory = mainCategory
@@ -145,7 +147,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -166,7 +168,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -181,6 +183,7 @@ class StaffButtonClick(commands.Cog):
             if not memberop.id in voprosmembers:
                 countervopros += 1
                 voprosmembers.append(memberop.id)
+                await inter.send(res, ephemeral = True)
                 ticket_type = '🎭 `Заявка в направление ивентов`'
                 ticket_systemname= 'nabor_events'
                 mainCategory = mainCategory
@@ -240,7 +243,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -261,7 +264,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -277,6 +280,7 @@ class StaffButtonClick(commands.Cog):
             if not memberop.id in voprosmembers:
                 countervopros += 1
                 voprosmembers.append(memberop.id)
+                await inter.send(res, ephemeral = True)
                 ticket_type = '📝 `Заявка в направление редакция`'
                 ticket_systemname= 'nabor_edit'
                 mainCategory = mainCategory
@@ -336,7 +340,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -357,7 +361,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
