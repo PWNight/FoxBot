@@ -126,7 +126,7 @@ class StaffButtonClick(commands.Cog):
                 await delete.delete()
 
                 def check(m):
-                    return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
+                    return m.message.id == msgtic.id and m.author.guild_permissions.administrator == True
                 try:
                    m = await self.client.wait_for("button_click", check=check)
                 except asyncio.TimeoutError:
@@ -166,7 +166,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -174,16 +174,15 @@ class StaffButtonClick(commands.Cog):
                         voprosmembers.remove(memberop.id)
                         os.remove(f'{ticket_systemname}.txt')
                         return
-        if inter.component.custom_id == "nabor_moder":
+        if inter.component.custom_id == "nabor_events":
             if memberop.id in voprosmembers:
                 await inter.send(resno, ephemeral = True)
                 return
             if not memberop.id in voprosmembers:
-                global countervopros
                 countervopros += 1
                 voprosmembers.append(memberop.id)
-                ticket_type = '💬 `Заявка в направление модерации`'
-                ticket_systemname= 'nabor_moder'
+                ticket_type = '🎭 `Заявка в направление ивентов`'
+                ticket_systemname= 'nabor_events'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
@@ -194,7 +193,7 @@ class StaffButtonClick(commands.Cog):
                 embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'''
                 **Автор:** <:member:1105878287978340415> `{memberop}` 
                 \n**ID обращения:**  `{ticket_num}` 
-                \n**Направление:** 💬 `Модерация`.''', color = 0x2f3136)
+                \n**Направление:** 🎭 `Ивенты`.''', color = 0x2f3136)
                 responceemb = responceemb
                 buttonembed = buttonembed
                 await channel2.send(embed=embinfo)
@@ -205,13 +204,13 @@ class StaffButtonClick(commands.Cog):
                 row = Button(
                         style = discord.ButtonStyle.green,
                         label = 'Одобрить заявку',
-                        custom_id = 'accept_moder',
+                        custom_id = 'accept_events',
                         emoji= '<:minecraft_accept:1080779491875491882>'
                     )
                 row2 = Button(
                         style = discord.ButtonStyle.danger,
                         label = 'Отклонить заявку',
-                        custom_id = 'deny_moder',
+                        custom_id = 'deny_events',
                         emoji= '<:minecraft_deny:1080779495386140684>'
                     )
                 view2=View()
@@ -222,13 +221,13 @@ class StaffButtonClick(commands.Cog):
                 await delete.delete()
 
                 def check(m):
-                    return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
+                    return m.message.id == msgtic.id and m.author.guild_permissions.administrator == True
                 try:
                    m = await self.client.wait_for("button_click", check=check)
                 except asyncio.TimeoutError:
                     print("Неизвестная ошибка в коде тикетов") 
                 else:
-                    if m.component.custom_id == "accept_moder":
+                    if m.component.custom_id == "accept_events":
                         embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Заявка в команду проекта одобрена.', colour=0x2f3136)
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
@@ -241,7 +240,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -249,7 +248,7 @@ class StaffButtonClick(commands.Cog):
                         voprosmembers.remove(memberop.id)
                         os.remove(f'{ticket_systemname}.txt')
                         return
-                    if m.component.custom_id == "deny_moder":
+                    if m.component.custom_id == "deny_events":
                         embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Заявка в команду проекта отклонена.', colour=0x2f3136)
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
@@ -262,7 +261,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -271,16 +270,15 @@ class StaffButtonClick(commands.Cog):
                         os.remove(f'{ticket_systemname}.txt')
                         return
 
-        if inter.component.custom_id == "nabor_moder":
+        if inter.component.custom_id == "nabor_edit":
             if memberop.id in voprosmembers:
                 await inter.send(resno, ephemeral = True)
                 return
             if not memberop.id in voprosmembers:
-                global countervopros
                 countervopros += 1
                 voprosmembers.append(memberop.id)
-                ticket_type = '💬 `Заявка в направление модерации`'
-                ticket_systemname= 'nabor_moder'
+                ticket_type = '📝 `Заявка в направление редакция`'
+                ticket_systemname= 'nabor_edit'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
@@ -291,7 +289,7 @@ class StaffButtonClick(commands.Cog):
                 embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'''
                 **Автор:** <:member:1105878287978340415> `{memberop}` 
                 \n**ID обращения:**  `{ticket_num}` 
-                \n**Направление:** 💬 `Модерация`.''', color = 0x2f3136)
+                \n**Направление:** 📝 `Редакция`.''', color = 0x2f3136)
                 responceemb = responceemb
                 buttonembed = buttonembed
                 await channel2.send(embed=embinfo)
@@ -302,13 +300,13 @@ class StaffButtonClick(commands.Cog):
                 row = Button(
                         style = discord.ButtonStyle.green,
                         label = 'Одобрить заявку',
-                        custom_id = 'accept_moder',
+                        custom_id = 'accept_edit',
                         emoji= '<:minecraft_accept:1080779491875491882>'
                     )
                 row2 = Button(
                         style = discord.ButtonStyle.danger,
                         label = 'Отклонить заявку',
-                        custom_id = 'deny_moder',
+                        custom_id = 'deny_edit',
                         emoji= '<:minecraft_deny:1080779495386140684>'
                     )
                 view2=View()
@@ -319,7 +317,7 @@ class StaffButtonClick(commands.Cog):
                 await delete.delete()
 
                 def check(m):
-                    return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
+                    return m.message.id == msgtic.id and m.author.guild_permissions.administrator == True
                 try:
                    m = await self.client.wait_for("button_click", check=check)
                 except asyncio.TimeoutError:
@@ -338,7 +336,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -359,7 +357,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\n\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
