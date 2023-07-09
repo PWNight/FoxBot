@@ -14,7 +14,7 @@ def get_lang(guild, key):
 
 
 def done(guild, args):
-    em = discord.Embed(colour=0x2ecc70, title=f'{config.okay} | {get_lang(guild, "EMBED_DONE")}', description=args)
+    em = discord.Embed(colour=0x2f3136, title=f'{config.okay} | {get_lang(guild, "EMBED_DONE")}', description=args)
     return em
 
 def warn(guild, args):
