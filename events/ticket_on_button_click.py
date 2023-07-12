@@ -852,66 +852,7 @@ class ButtonClick(commands.Cog):
                         
                         voprosmembers.remove(memberop.id)
                         os.remove(f'{ticket_systemname}.txt')
-                        return
-
-
-        #if inter.component.custom_id == "newguild":
-        #    if memberop.id in voprosmembers:
-        #        await inter.send(resno, ephemeral = True)
-        #        return
-        #    if not memberop.id in voprosmembers:
-        #        await inter.send(res, ephemeral = True)
-        #        countervopros += 1
-        #        voprosmembers.append(memberop.id)
-        #        mainCategory = discord.utils.get(guild.categories, id=939513361425657947) #ID категории, где будут создаваться тикеты.
-        #        channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
-        #        modrole = discord.utils.get(guild.roles,id=939476433196171324) #ID роли модератора
-        #        await channel2.set_permissions(modrole,send_messages=True,read_messages=True,read_message_history=True)
-        #        await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
-        #        await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
-        #        embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:phoenix_plus:953725336061886505> `Создание организации`.', color = 0x2f3136)
-        #        emb1 = discord.Embed(title='Добро пожаловать в службу поддержки.', description='Для создания вашей организации, отправьте соообщение по следующей форме заполнения.: \n1) Название организации. \n2) Описание организации. \n3) Эмодзи для кнопки вступления в организацию. \n 4) Цвет роли организации (Форматом HEX). 5) Герб организации (https://minecraft.tools/en/banner.php)', color = 0x2f3136)
-        #        nhtrhtrjtremb1 = discord.Embed(title='Когда мне ответят?', description=" Обращения разбираются в порядке очереди. В среднем обращения разбираются от 1 до 3-х часов в рабочие дни с 10:00 по 00:00. В выходные время ответа может быть дольше, но не более 9-ти часов. \n\nЕсли с момента отправки последнего сообщения прошло более 3-х часов, а вам не ответили - можете упомянуть <@&939476433196171324>. \nЕсли прошло более 6-ти часов - упоминайте <@&922561682780332102>.", color = 0x2f3136)
-        #        embed3 = discord.Embed(title='', description='<:info:871310064135327775> Обращения закрываются сотрудниками кнопкой ниже.', color = 0x2f3136)
-        #        await channel2.send(embed=embinfo)
-        #        await channel2.send(embed=emb1)
-        #        await channel2.send(embed=nhtrhtrjtremb1)
-        #        row = Button(
-        #                style = discord.ButtonStyle.grey,
-        #                label = 'Закрыть обращение',
-        #                custom_id = 'accept_guild',
-        #                emoji= '<:blurplelock:856563321321816104>'
-        #            )
-        #        view2=View()
-        #        view2.add_item(row)
-        #        msgtic = await channel2.send(embed=embed3, view=view2)
-        #        delete = await channel2.send(content = f'{memberop.mention}')
-        #        await delete.delete()
-        #        def check(m):
-        #            return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
-        #        try:
-        #           m = await self.client.wait_for("button_click", check=check)
-        #        except asyncio.TimeoutError:
-        #            print("Неизвестная ошибка в коде тикетов") 
-        #        else:
-        #            if m.component.custom_id == "accept_guild":
-        #                embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Обращение закрыто.', colour=0x2f3136)
-        #                embedth.add_field(name='ID:', value=f'`{ticket_num}`')
-        #                embedth.add_field(name='Тип обращения:', value=f'<:phoenix_plus:953725336061886505> `Создание организации`')
-        #                embedth.add_field(name='Модератор:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
-        #                embedth.add_field(name='Автор:', value=f'<:member:979406123587223562> `{memberop}`')  
-        #                with open(f"newguild.txt", "a", encoding='utf8') as f:
-        #                    async for msg12 in channel2.history(limit = 100):
-        #                        f.write(f"{msg12.created_at}:{msg12.author} ({msg12.author.id}): {msg12.content} \n")      
-        #                await logchannel.send(embed=embedth,file=File(f'newguild.txt'))
-        #                voprosmembers.remove(memberop.id)
-        #                await channel2.delete()
-        #                clsembed=discord.Embed(title="\📞 Оповещение службы поддержки.", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID: `{ticket_num}` \nТип обращения: <:phoenix_plus:953725336061886505> `Создание организации`.', colour = 0x2f3136)
-        #                clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
-        #                clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
-        #                await memberop.send(embed = clsembed)
-        #                os.remove(f'newguild.txt')
-        #                return     
+                        return  
 
 def setup(client):
     client.add_cog(ButtonClick(client))
