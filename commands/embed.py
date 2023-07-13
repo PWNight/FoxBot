@@ -186,21 +186,21 @@ class Embed(commands.Cog):
             img = thm = ds = t = u = fo = au = colo = smpl = None
             if len(msg12.embeds) > 0:
                 old_em = msg12.embeds[0]
-            if old_em.description != discord.Embed.Empty:
+            if old_em.description != None:
                 ds = old_em.description
-            if old_em.title != discord.Embed.Empty:
+            if old_em.title != None:
                 t = old_em.title
-            if old_em.thumbnail.url != discord.Embed.Empty:
+            if old_em.thumbnail.url != None:
                 thm = old_em.thumbnail.url
-            if old_em.image.url != discord.Embed.Empty:
+            if old_em.image.url != None:
                 img = old_em.image.url
-            if old_em.url != discord.Embed.Empty:
+            if old_em.url != None:
                 u = old_em.url
-            if old_em.author.name != discord.Embed.Empty:
+            if old_em.author.name != None:
                 a = old_em.author.name
-            if old_em.author.icon_url != discord.Embed.Empty:
+            if old_em.author.icon_url != None:
                 ai = old_em.author.icon_url
-            if old_em.footer.text != discord.Embed.Empty:
+            if old_em.footer.text != None:
                 fo = old_em.footer.text
             if msg12.content is not None:
                 smpl = msg12.content
@@ -299,7 +299,7 @@ class Embed(commands.Cog):
                             author = author[2:]
                             author = author[:-1]
                         fm2 = await self.client.fetch_user(int(author))
-                        em.set_author(name=f"{ctx.author.display_name}",icon_url=f"{fm2.avatar}")
+                        em.set_author(name=f"{fm2.display_name}",icon_url=f"{fm2.avatar}")
                 else:
                     em.set_author(name=f"{ctx.author.display_name}",icon_url=f"{ctx.author.avatar}")
             if not author:
@@ -360,35 +360,35 @@ class Embed(commands.Cog):
         if len(msg.embeds) > 0:
             ds = t = f = c = a =img = thm = None
             embed = msg.embeds[0]
-            if embed.description != discord.Embed.Empty:
+            if embed.description != None:
                 ds = f'$d {embed.description}'
             else:
                 ds = ''
-            if embed.title != discord.Embed.Empty:
+            if embed.title != None:
                 t = f'$t {embed.title}'
             else:
                 t = ''
-            if embed.thumbnail.url != discord.Embed.Empty:
+            if embed.thumbnail.url != None:
                 thm = f'$thumb {embed.thumbnail.url}'
             else: 
                 thm = ''
-            if embed.image.url != discord.Embed.Empty:
+            if embed.image.url != None:
                 img = f'$image {embed.image.url}'
             else:
                 img = ''
-            if embed.footer.text != discord.Embed.Empty:
+            if embed.footer.text != None:
                 f = f'$f {embed.footer.text}'
             else:
                 f = '$f -'
-            if embed.author.name != discord.Embed.Empty:
+            if embed.author.name != None:
                 a = f'$a @{embed.author.name}'
             else:
                 a = f'$a -'
-            if embed.colour != discord.Embed.Empty:
+            if embed.colour != None:
                 c = f'$c {embed.colour}'
             else:
                 c = f''
-            if embed.footer.icon_url != discord.Embed.Empty:
+            if embed.footer.icon_url != None:
                 fu = f'$fu {embed.footer.icon_url}'
             else:
                 fu = ''
