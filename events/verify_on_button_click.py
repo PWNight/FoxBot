@@ -29,7 +29,6 @@ class VerifyButtonClick(commands.Cog):
                 await inter.send(resno, ephemeral = True)
                 return
             if not memberop.id in verifymembers:
-
                 global counterverify
                 counterverify += 1
                 await inter.response.send_modal(

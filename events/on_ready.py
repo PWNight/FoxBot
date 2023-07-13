@@ -141,7 +141,6 @@ class OnReady(commands.Cog):
             )
         view.add_item(row)
         await statusmsg.edit(embed = embed, view = view)
-
         self.status_task.start()   
 
     @commands.Cog.listener()

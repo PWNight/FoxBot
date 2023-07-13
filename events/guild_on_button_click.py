@@ -21,7 +21,6 @@ class GuildButtonClick(commands.Cog):
         ticket_num = shortuuid.ShortUUID().random(length=6)
         logchannel = self.client.get_channel(939513221046472744) # ID канала с логами.
         mainCategory = discord.utils.get(guild.categories, id=939513361425657947)
-        channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
 
         #Текстовая информация
         res = '<:minecraft_accept:1080779491875491882> Заявка отправлена. Ожидайте уведомления от главы организации.'
@@ -34,8 +33,7 @@ class GuildButtonClick(commands.Cog):
 
         if inter.component.custom_id == "error":
             await inter.send(error, ephemeral = True)
-
-
+            
         if inter.component.custom_id == "japan":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -74,6 +72,7 @@ class GuildButtonClick(commands.Cog):
                 counterguild += 1
                 guildmembers.append(memberop.id)
                 owner = await self.client.fetch_user(int(guildownerid))
+                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                 await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
@@ -201,6 +200,7 @@ class GuildButtonClick(commands.Cog):
                 counterguild += 1
                 guildmembers.append(memberop.id)
                 owner = await self.client.fetch_user(int(guildownerid))
+                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                 await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
@@ -351,6 +351,7 @@ class GuildButtonClick(commands.Cog):
                 counterguild += 1
                 guildmembers.append(memberop.id)
                 owner = await self.client.fetch_user(int(guildownerid))
+                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                 await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
