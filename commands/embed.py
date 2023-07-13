@@ -125,7 +125,7 @@ class Embed(commands.Cog):
                             author = author[2:]
                             author = author[:-1]
                         fm2 = await self.client.fetch_user(int(author))
-                        em.set_author(name=f"{ctx.author.display_name}",icon_url=f"{fm2.avatar.url}")
+                        em.set_author(name=f"{fm2.display_name}",icon_url=f"{fm2.avatar.url}")
                 else:
                     pass
             if not author:
