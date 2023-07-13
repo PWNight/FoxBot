@@ -22,6 +22,28 @@ class OnReady(commands.Cog):
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
+        guildchnl = await self.client.fetch_channel(991247514495885393)
+#Япония
+        japanmsg = await guildchnl.fetch_message(1045184416714076292)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'japan', emoji= '🇯🇵')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await japanmsg.edit(view=viewverify) 
+#Авиньон
+        avimsg = await guildchnl.fetch_message(1080413919291641876)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'avignon', emoji= '🗺️')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await avimsg.edit(view=viewverify)
+#Хвардия
+        #guardmsg = await guildchnl.fetch_message(1071854764469518408)
+        #verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'guard', emoji= ':guard::skin-tone-2:')
+        #viewverify=View()
+        #viewverify.add_item(verify)
+        #await guardmsg.edit(view=viewverify)     
+
+
+
         ticketchnl = await self.client.fetch_channel(939438939259949067) # ID канала, где при нажатии на реакцию создаётся тикет.
         ticketmsg = await ticketchnl.fetch_message(1105549141922291782)
 
@@ -119,7 +141,9 @@ class OnReady(commands.Cog):
             )
         view.add_item(row)
         await statusmsg.edit(embed = embed, view = view)
+
         self.status_task.start()   
+
     @commands.Cog.listener()
     async def on_button_click(self, inter):
         if inter.component.custom_id == "playerlist":
