@@ -10,4 +10,5 @@ async-timeout
 asyncio
 shortuuid
 mcstatus
+mctools
 datetime
