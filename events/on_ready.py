@@ -36,11 +36,11 @@ class OnReady(commands.Cog):
         viewverify.add_item(verify)
         await avimsg.edit(view=viewverify)
 #Хвардия
-        #guardmsg = await guildchnl.fetch_message(1071854764469518408)
-        #verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'guard', emoji= ':guard::skin-tone-2:')
-        #viewverify=View()
-        #viewverify.add_item(verify)
-        #await guardmsg.edit(view=viewverify)     
+        guardmsg = await guildchnl.fetch_message(1129135604920238100)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'guard', emoji= '🏹')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await guardmsg.edit(view=viewverify)     
 
 
 

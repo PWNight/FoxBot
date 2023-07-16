@@ -423,7 +423,7 @@ class GuildButtonClick(commands.Cog):
                         os.remove(f'guild_{ticket_name}.txt')
                         return
         if inter.component.custom_id == f"exit_guard":
-            name = ':guard::skin-tone-2:  `Гвардия`'
+            name = '🏹 `Гвардия`'
             ticket_name = 'guard'
             guildownerid = '953687436725211257'
             guildroleid = '1128764905063985232'
