@@ -4,6 +4,8 @@ from disnake.ui import Button, View
 import time
 import mcstatus
 from mcstatus import JavaServer 
+import datetime
+
 
 class OnReady(commands.Cog):
     def __init__(self, client):
@@ -125,13 +127,13 @@ class OnReady(commands.Cog):
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
+        date = datetime.datetime.today()
+        embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
-        embed.add_field(name = 'Описание:',value = f'''FoxWorld Vanilla - наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
-        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
-        embed.set_footer(text='Информация обновляется раз в 20 секунд.')
+        embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023 | Обновлено {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         view=View()
         row = Button(
                 style = discord.ButtonStyle.gray,
@@ -157,6 +159,7 @@ class OnReady(commands.Cog):
 
     @tasks.loop(minutes = 0.2)
     async def status_task(self):
+        date = datetime.datetime.today()
         guild = self.client.get_guild(921483461016031263)
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
@@ -166,13 +169,12 @@ class OnReady(commands.Cog):
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        embed = discord.Embed(title='Информация о сервере Vanilla', colour = 0xadf36c)
+        embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
-        embed.add_field(name = 'Описание:',value = f'''FoxWorld Vanilla - наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
-        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
-        embed.set_footer(text='Информация обновляется раз в 20 секунд.')
+        embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023 | Обновлено {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         view=View()
         row = Button(
                 style = discord.ButtonStyle.gray,
