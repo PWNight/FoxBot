@@ -101,22 +101,22 @@ class VerifyButtonClick(commands.Cog):
                                 rcon.command(f'verify {inter.text_values["Никнейм"]}')
                                 rcon.command(f'Добавление игрока в вайтлист')
                                 rcon.stop()
-                            embinfo = discord.Embed(title=f'<:invite:1105878276242673725> Заявка игрока {memberop.name}', description=f"### Статус заявки: <:minecraft_accept:1080779491875491882> Принята. \n### Принял заявку: {inter.author.display_name}", color = 0x2f3136)
+                            embinfo = discord.Embed(title=f'<:invite:1105878276242673725> Заявка игрока {memberop.name}', description=f"**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята. \n**Принял заявку:** {m.author.mention}", color = 0x2f3136)
                             for key, value in inter.text_values.items():
                                 embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {inter.author.display_name}. \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention}. \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
                             return
                         if m.component.custom_id == "deny_verify":
                             await msgtic.delete()
-                            embinfo = discord.Embed(title=f'<:invite:1105878276242673725> Заявка игрока {memberop.name}', description=f"### Статус заявки: <:minecraft_deny:1080779495386140684> Отклонена. \n### Отклонил заявку: {inter.author.display_name}", color = 0x2f3136)
+                            embinfo = discord.Embed(title=f'<:invite:1105878276242673725> Заявка игрока {memberop.name}', description=f"**Статус заявки:** <:minecraft_deny:1080779495386140684> Отклонена. \n**Отклонил заявку:** {m.author.mention}", color = 0x2f3136)
                             for key, value in inter.text_values.items():
                                 embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {inter.author.display_name}. \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {m.author.mention}. \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
