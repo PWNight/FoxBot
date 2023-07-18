@@ -96,7 +96,7 @@ class GuildButtonClick(commands.Cog):
                 view2.add_item(row)
                 view2.add_item(row2)
                 msgtic = await channel2.send(embed=embed3, view=view2)
-                delete = await channel2.send(content = f'{memberop.mention}')
+                delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
                 await delete.delete()
                 def check(m):
                     return m.message.id == msgtic.id and m.author.id == int(guildownerid)
@@ -224,7 +224,7 @@ class GuildButtonClick(commands.Cog):
                 view2.add_item(row)
                 view2.add_item(row2)
                 msgtic = await channel2.send(embed=embed3, view=view2)
-                delete = await channel2.send(content = f'{memberop.mention}')
+                delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
                 await delete.delete()
                 def check(m):
                     return m.message.id == msgtic.id and m.author.id == int(guildownerid)
@@ -375,7 +375,7 @@ class GuildButtonClick(commands.Cog):
                 view2.add_item(row)
                 view2.add_item(row2)
                 msgtic = await channel2.send(embed=embed3, view=view2)
-                delete = await channel2.send(content = f'{memberop.mention}')
+                delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
                 await delete.delete()
                 def check(m):
                     return m.message.id == msgtic.id and m.author.id == int(guildownerid)
@@ -470,7 +470,7 @@ class GuildButtonClick(commands.Cog):
                 view2=View()
                 view2.add_item(row)
                 msgtic = await channel2.send(embed=embed3, view=view2)
-                delete = await channel2.send(content = f'{memberop.mention}')
+                delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
                 await delete.delete()
                 def check(m):
                     return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
