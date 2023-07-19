@@ -127,7 +127,7 @@ class OnReady(commands.Cog):
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        date = datetime.datetime.today()
+        date = datetime.datetime.now()
         embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
         Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
@@ -159,7 +159,7 @@ class OnReady(commands.Cog):
 
     @tasks.loop(minutes = 0.2)
     async def status_task(self):
-        date = datetime.datetime.today()
+        date = datetime.datetime.now()
         guild = self.client.get_guild(921483461016031263)
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
