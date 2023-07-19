@@ -90,7 +90,7 @@ class StaffButtonClick(commands.Cog):
                 ticket_type = '💬 `Заявка в направление модерации`'
                 ticket_systemname= 'nabor_moder'
                 mainCategory = mainCategory
-                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
+                channel2 = await guild.create_text_channel(f"teamjoin {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(internrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
@@ -186,7 +186,7 @@ class StaffButtonClick(commands.Cog):
                 ticket_type = '🎭 `Заявка в направление ивентов`'
                 ticket_systemname= 'nabor_events'
                 mainCategory = mainCategory
-                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
+                channel2 = await guild.create_text_channel(f"teamjoin {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(internrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
@@ -283,7 +283,7 @@ class StaffButtonClick(commands.Cog):
                 ticket_type = '📝 `Заявка в направление редакция`'
                 ticket_systemname= 'nabor_edit'
                 mainCategory = mainCategory
-                channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
+                channel2 = await guild.create_text_channel(f"teamjoin {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(internrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
