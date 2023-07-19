@@ -160,6 +160,7 @@ class OnReady(commands.Cog):
     @tasks.loop(minutes = 0.2)
     async def status_task(self):
         date = datetime.datetime.now()
+        
         guild = self.client.get_guild(921483461016031263)
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
