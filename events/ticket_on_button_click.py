@@ -236,7 +236,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -305,7 +305,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -376,7 +376,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -445,7 +445,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -626,7 +626,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -696,7 +696,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -766,7 +766,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:blurplecertifiedmoderator:856563321541230602> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
@@ -836,7 +836,7 @@ class ButtonClick(commands.Cog):
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                         embedth.add_field(name='Сервер:', value=f'{ticket_server}')
                         embedth.add_field(name='Тип обращения:', value=f'{ticket_type}')
-                        embedth.add_field(name='Модератор:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:1105878287978340415> `{memberop}`')  
 
                         with open(f"{ticket_systemname}.txt", "a", encoding='utf8') as f:
