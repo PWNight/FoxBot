@@ -446,15 +446,15 @@ class GuildButtonClick(commands.Cog):
                 return
             if not memberop.id in guildmembers:
                 await inter.send(res, ephemeral = True)
-                countervopros += 1
+                counterguild += 1
                 guildmembers.append(memberop.id)
                 mainCategory = discord.utils.get(guild.categories, id=939513361425657947) #ID категории, где будут создаваться тикеты.
-                channel2 = await guild.create_text_channel(f"guildjoin {ticket_num}", category = mainCategory)
+                channel2 = await guild.create_text_channel(f"guildcreate {ticket_num}", category = mainCategory)
                 modrole = discord.utils.get(guild.roles,id=939476433196171324) #ID роли модератора
                 await channel2.set_permissions(modrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
-                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:phoenix_plus:953725336061886505> `Создание организации`.', color = 0x2f3136)
+                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:invite:1105878276242673725> `Создание организации`.', color = 0x2f3136)
                 emb1 = discord.Embed(title='Добро пожаловать в службу поддержки.', description='Для создания вашей организации, отправьте соообщение по следующей форме заполнения.: \n1) Название организации. \n2) Описание организации. \n3) Эмодзи для кнопки вступления в организацию. \n 4) Цвет роли организации (Форматом HEX). 5) Герб организации (https://minecraft.tools/en/banner.php)', color = 0x2f3136)
                 nhtrhtrjtremb1 = discord.Embed(title='Когда мне ответят?', description=" Обращения разбираются в порядке очереди. В среднем обращения разбираются от 1 до 3-х часов в рабочие дни с 10:00 по 00:00. В выходные время ответа может быть дольше, но не более 9-ти часов. \n\nЕсли с момента отправки последнего сообщения прошло более 3-х часов, а вам не ответили - можете упомянуть <@&939476433196171324>. \nЕсли прошло более 6-ти часов - упоминайте <@&922561682780332102>.", color = 0x2f3136)
                 embed3 = discord.Embed(title='', description='<:info:871310064135327775> Обращения закрываются сотрудниками кнопкой ниже.', color = 0x2f3136)
@@ -470,7 +470,7 @@ class GuildButtonClick(commands.Cog):
                 view2=View()
                 view2.add_item(row)
                 msgtic = await channel2.send(embed=embed3, view=view2)
-                delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
+                delete = await channel2.send(content = f'{memberop.mention}')
                 await delete.delete()
                 def check(m):
                     return m.message.id == msgtic.id and m.author.guild_permissions.manage_messages == True
@@ -482,8 +482,8 @@ class GuildButtonClick(commands.Cog):
                     if m.component.custom_id == "accept_guild":
                         embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Обращение закрыто.', colour=0x2f3136)
                         embedth.add_field(name='ID:', value=f'`{ticket_num}`')
-                        embedth.add_field(name='Тип обращения:', value=f'<:phoenix_plus:953725336061886505> `Создание организации`')
-                        embedth.add_field(name='Модератор:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
+                        embedth.add_field(name='Тип обращения:', value=f'<:invite:1105878276242673725> `Создание организации`')
+                        embedth.add_field(name='Сотрудник:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
                         embedth.add_field(name='Автор:', value=f'<:member:979406123587223562> `{memberop}`')  
                         with open(f"newguild.txt", "a", encoding='utf8') as f:
                             async for msg12 in channel2.history(limit = 100):
