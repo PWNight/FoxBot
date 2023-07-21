@@ -25,6 +25,12 @@ class OnReady(commands.Cog):
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         guildchnl = await self.client.fetch_channel(991247514495885393)
+#Новая организация
+        newmsg = await guildchnl.fetch_message(1045046216989343834)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'newguild', emoji= '<:invite:1105878276242673725>')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await newmsg.edit(view=viewverify) 
 #Япония
         japanmsg = await guildchnl.fetch_message(1045184416714076292)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'japan', emoji= '🇯🇵')

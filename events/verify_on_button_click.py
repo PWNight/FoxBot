@@ -19,7 +19,7 @@ class VerifyButtonClick(commands.Cog):
         logchannel = self.client.get_channel(1126156262216843394) # ID канала с логами.
         memberop = inter.author
         guild = self.client.get_guild(921483461016031263)
-        role = discord.utils.get(guild.roles, id=1028254807129083954)
+        role = discord.utils.get(guild.roles, id=1131924719902400554)
         
         #Текстовая информация для тикетов.
         resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. Ожидайте решения по предыдущей заявке, чтобы открыть новую.'
@@ -98,7 +98,7 @@ class VerifyButtonClick(commands.Cog):
                             PORT = 25571
                             rcon = RCONClient(HOST, port = PORT)
                             if rcon.login('59d82888-5420-43b9-a58b-98c382061602'):
-                                rcon.command(f'verify {inter.text_values["Никнейм"]}')
+                                rcon.command(f'easywl add {inter.text_values["Никнейм"]}')
                                 rcon.command(f'Добавление игрока в вайтлист')
                                 rcon.stop()
                             embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка игрока {memberop.mention} \n\n**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята. \n**Принял заявку:** {m.author.mention}.", color = 0x2f3136)
