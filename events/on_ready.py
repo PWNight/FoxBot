@@ -21,8 +21,8 @@ class OnReady(commands.Cog):
 
         guild = self.client.get_guild(921483461016031263)
 
-        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         guildchnl = await self.client.fetch_channel(991247514495885393)
 #Новая организация
@@ -65,13 +65,13 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
-                custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'discord_openticket',
+                custom_id = 'discord_openticket', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'discord_openticket',
                 emoji= '<:discord:856561477033263124>'
             )
         row2 = Button(
                 style = discord.ButtonStyle.green,
                 label = 'Minecraft',
-                custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'minecraft_openticket',
+                custom_id = 'minecraft_openticket', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'minecraft_openticket',
                 emoji= '<:minecraft:856561476873355316>'
             )
         view=View()
@@ -86,7 +86,7 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку',
-                custom_id = 'maintenance', #verify #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!!
+                custom_id = 'verify', #verify #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!!
                 emoji= '<:message:1105891497255108679>'
             )
         view=View()
@@ -178,8 +178,8 @@ class OnReady(commands.Cog):
         date = datetime.datetime.now(tzinfo)
         
         guild = self.client.get_guild(921483461016031263)
-        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         statuschnl = await self.client.fetch_channel(939438241290022924) 
         statusmsg = await statuschnl.fetch_message(1126854219295641611)
