@@ -113,8 +113,7 @@ class Embed(commands.Cog):
             if url:
                 em = discord.Embed(title=title, description=description, url=url, color=color)
             if author:
-                print(len(author))
-                if roleowner in ctx.author.roles  :
+                if roleowner in ctx.author.roles:
                     if author == '-':
                         pass
                     else:
@@ -125,11 +124,11 @@ class Embed(commands.Cog):
                             author = author[2:]
                             author = author[:-1]
                         fm2 = await self.client.fetch_user(int(author))
-                        em.set_author(name=f"{fm2.display_name}",icon_url=f"{fm2.avatar.url}")
-                else:
-                    pass
-            if not author:
-                pass
+                        em.set_author(name=f"{fm2.display_name}",icon_url=f"{fm2.avatar}")
+            else:
+                em.set_author(name=f"{ctx.display_name}",icon_url=f"{ctx.author.avatar}")
+            #if not author:
+            #    pass
             if image:
                 em.set_image(url=image)
             if thumbnail:
@@ -197,8 +196,10 @@ class Embed(commands.Cog):
             if old_em.url != None:
                 u = old_em.url
             if old_em.author.name != None:
+                global a
                 a = old_em.author.name
             if old_em.author.icon_url != None:
+                global ai
                 ai = old_em.author.icon_url
             if old_em.footer.text != None:
                 fo = old_em.footer.text
