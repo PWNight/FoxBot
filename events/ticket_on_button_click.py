@@ -175,7 +175,7 @@ class ButtonClick(commands.Cog):
                
                         await pwnight.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто администратором `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто администратором `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -245,7 +245,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -314,7 +314,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -385,7 +385,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -454,7 +454,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -565,7 +565,7 @@ class ButtonClick(commands.Cog):
                
                         await pwnight.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто администратором `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто администратором `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -635,7 +635,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -705,7 +705,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -775,7 +775,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -845,7 +845,7 @@ class ButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \nВаше обращение закрыто сотрудником `{m.author}`. \nВы можете запросить файл с содержанием вашего обращения в течение 3-х дней с момента закрытия обращения. Для этого обратитесь к руководителю проекта `Найт#0550`, предъявив ID вашего обращения. \n\nID:  `{ticket_num}` \nСервер: <:discord:856561477033263124> `Discord`.\nТип обращения: <:report:1105878279736528977> `Жалоба`.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)

@@ -146,7 +146,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -167,7 +167,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 💬 `Модерация` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -242,7 +242,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -263,7 +263,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 🎭 `Ивенты` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -339,7 +339,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была одобрена руководителем `{m.author}`. \nВ ближайшее время вам будут выданы необходимые роли и права. \n\nДобро пожаловать в команду проекта! С любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)
@@ -360,7 +360,7 @@ class StaffButtonClick(commands.Cog):
                
                         await logchannel.send(embed=embedth,file=File(f'{ticket_systemname}.txt'))
                         await channel2.delete()
-                        clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
+                        clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую. \n\nВаша заявка на вступление в команду проекта по направлению 📝 `Редакция` была отклонена руководителем `{m.author}`. \nПричину отклонения можно узнать у руководителя, отклонившего вашу заявку. \n\nНе расстраивайтесь! Вы можете доработать вашу заявку и отправить её снова через 21 день с момента отклонения текущей заявки.\nС любовью к своему делу, руководство проекта FoxWorld.', colour = 0x2f3136)
                         clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105878293187678208.webp?size=96&quality=lossless")
                         clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                         await memberop.send(embed = clsembed)

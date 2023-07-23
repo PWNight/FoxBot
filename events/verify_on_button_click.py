@@ -105,7 +105,7 @@ class VerifyButtonClick(commands.Cog):
                             for key, value in inter.text_values.items():
                                 embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention}. \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention}. \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
@@ -116,7 +116,7 @@ class VerifyButtonClick(commands.Cog):
                             for key, value in inter.text_values.items():
                                 embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="\📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {m.author.mention}. \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {m.author.mention}. \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
