@@ -2,9 +2,9 @@ import disnake as discord
 from disnake.ext import commands, tasks
 from disnake.ui import Button, View
 import time
-import mcstatus
 from mcstatus import JavaServer 
 import datetime
+from datetime import timezone, timedelta
 
 
 class OnReady(commands.Cog):
@@ -61,7 +61,7 @@ class OnReady(commands.Cog):
         ticketchnl = await self.client.fetch_channel(939438939259949067) # ID канала, где при нажатии на реакцию создаётся тикет.
         ticketmsg = await ticketchnl.fetch_message(1105549141922291782)
 
-        emb = discord.Embed(description= '\🔻 Выберите сервер, по которому желаете создать обращение', colour = 0x2f3136)
+        emb = discord.Embed(description= '🔻 Выберите сервер, по которому желаете создать обращение', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
@@ -82,7 +82,7 @@ class OnReady(commands.Cog):
         verifychnl = await self.client.fetch_channel(1111325108217315368) # ID канала, где при нажатии на реакцию создаётся тикет.
         verifymsg = await verifychnl.fetch_message(1125044148890779720)
 
-        emb = discord.Embed(description= '\🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
+        emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку',
@@ -96,7 +96,7 @@ class OnReady(commands.Cog):
         naborchnl = await self.client.fetch_channel(1126877107658707074) # ID канала, где при нажатии на реакцию создаётся тикет.
         nabormsg = await naborchnl.fetch_message(1127575031682183290)
 
-        emb = discord.Embed(description= '\🔻 Нажмите на кнопку ниже, чтобы подать заявку в команду проекта.', colour = 0x2f3136)
+        emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку в команду проекта.', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку в команду',
@@ -139,13 +139,15 @@ class OnReady(commands.Cog):
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        date = datetime.datetime.now()
+        timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
+        tzinfo = timezone(timedelta(hours=timezone_offset))
+        date = datetime.datetime.now(tzinfo)
         embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
         Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
-        embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023 | Обновлено {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
+        embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         view=View()
         row = Button(
                 style = discord.ButtonStyle.gray,
@@ -171,7 +173,9 @@ class OnReady(commands.Cog):
 
     @tasks.loop(minutes = 0.2)
     async def status_task(self):
-        date = datetime.datetime.now()
+        timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
+        tzinfo = timezone(timedelta(hours=timezone_offset))
+        date = datetime.datetime.now(tzinfo)
         
         guild = self.client.get_guild(921483461016031263)
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
@@ -187,7 +191,7 @@ class OnReady(commands.Cog):
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
-        embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023 | Обновлено {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
+        embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         view=View()
         row = Button(
                 style = discord.ButtonStyle.gray,
