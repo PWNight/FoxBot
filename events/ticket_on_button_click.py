@@ -72,6 +72,14 @@ class ButtonClick(commands.Cog):
         color = 0x2f3136)
         responceemb = discord.Embed(title='Когда мне ответят?', description=" Обращения разбираются в порядке очереди. В среднем обращения разбираются от 1 до 3-х часов в рабочие дни с 10:00 по 00:00. В выходные время ответа может быть дольше, но не более 9-ти часов. \n\nЕсли с момента отправки последнего сообщения прошло более 3-х часов, а вам не ответили - можете упомянуть <@&939476433196171324>. \nЕсли прошло более 6-ти часов - упоминайте <@&922561682780332102>.", color = 0x2f3136)
         buttonembed = discord.Embed(title='', description='<:info:871310064135327775> Обращения закрываются сотрудниками кнопкой ниже.', color = 0x2f3136)
+        maintenance = '<:minecraft_deny:1080779495386140684> Служба поддержки временно недоступна, бот активирован в режим технических работ, приносим свои извинения.'
+
+        if inter.component.custom_id == "maintenance_dc":
+            await inter.send(maintenance, ephemeral = True)
+            return   
+        if inter.component.custom_id == "maintenance_mc":
+            await inter.send(maintenance, ephemeral = True)
+            return   
         if inter.component.custom_id == "discord_openticket":
             if memberop.id in voprosmembers:
                 await inter.send(resno, ephemeral = True)

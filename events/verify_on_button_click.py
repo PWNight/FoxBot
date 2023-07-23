@@ -23,7 +23,11 @@ class VerifyButtonClick(commands.Cog):
         
         #Текстовая информация для тикетов.
         resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. Ожидайте решения по предыдущей заявке, чтобы открыть новую.'
+        maintenance = '<:minecraft_deny:1080779495386140684> Верификация временно недоступна, бот активирован в режим технических работ, приносим свои извинения.'
 
+        if inter.component.custom_id == "maintenance":
+            await inter.send(maintenance, ephemeral = True)
+            return      
         if inter.component.custom_id == "verify":
             if memberop.id in verifymembers:
                 await inter.send(resno, ephemeral = True)
