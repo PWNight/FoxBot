@@ -126,7 +126,7 @@ class Embed(commands.Cog):
                         fm2 = await self.client.fetch_user(int(author))
                         em.set_author(name=f"{fm2.display_name}",icon_url=f"{fm2.avatar}")
             else:
-                em.set_author(name=f"{ctx.display_name}",icon_url=f"{ctx.author.avatar}")
+                em.set_author(name=f"{ctx.author.display_name}",icon_url=f"{ctx.author.avatar}")
             #if not author:
             #    pass
             if image:
