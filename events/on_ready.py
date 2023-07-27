@@ -55,6 +55,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
+#Орден
+        guardmsg = await guildchnl.fetch_message(1134085724845654046)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'orden', emoji= '🥶')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await guardmsg.edit(view=viewverify)   
 
 
 
