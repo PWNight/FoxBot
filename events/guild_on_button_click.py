@@ -15,7 +15,7 @@ class GuildButtonClick(commands.Cog):
 
     @commands.Cog.listener()
     async def on_button_click(self, inter):
-        #Техническая информация
+#Техническая информация
         memberop = inter.author
         guild = self.client.get_guild(inter.guild.id)
         ticket_num = shortuuid.ShortUUID().random(length=6)
@@ -37,7 +37,10 @@ class GuildButtonClick(commands.Cog):
         ordenroleid = '1132004725311672360'
         ordenrole = discord.utils.get(guild.roles,id=int(ordenroleid)) 
 
-        #Текстовая информация
+        foxesroleid = '1134094239928680480'
+        foxesrole = discord.utils.get(guild.roles,id=int(foxesroleid)) 
+
+#Текстовая информация
         res = '<:minecraft_accept:1080779491875491882> Заявка отправлена. Ожидайте уведомления в открытом канале.'
         resno = '<:minecraft_deny:1080779495386140684> У вас уже есть открытая заявка в одну из организаций. Вы не можете открыть новую заявку, пока предыдущая не будет закрыта.'
         error = '<:minecraft_deny:1080779495386140684> Подача заявки в данную организацию временно недоступна.'
@@ -47,10 +50,10 @@ class GuildButtonClick(commands.Cog):
         emb1 = discord.Embed(title='Добро пожаловать в службу организаций', description='Заполните заявку по следующей форме: \n1) Ваш никнейм на сервере. \n2) Количество наигранных часов\n 3)Почему вы решили вступить в данную организацию.', color = 0x2f3136)
         nhtrhtrjtremb1 = discord.Embed(title='Когда мне ответят?', description="Время рассмотрения заявки зависит от главы организации, но обычно заявки рассматриваются в течение дня.", color = 0x2f3136)
         embed3 = discord.Embed(title='', description='<:info:871310064135327775> Заявки на вступление рассматриваются главой организации с помощью кнопок ниже.', color = 0x2f3136)
-
+#Временное отключение организации
         if inter.component.custom_id == "error":
             await inter.send(error, ephemeral = True)
-  
+#Япония
         if inter.component.custom_id == "japan":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -191,7 +194,7 @@ class GuildButtonClick(commands.Cog):
                 await logchannel.send(embed=embed)
             else:
                 await inter.send(noguild, ephemeral = True)
-
+#Авиньон
         if inter.component.custom_id == "avignon":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -329,7 +332,7 @@ class GuildButtonClick(commands.Cog):
                 await logchannel.send(embed=embed)
             else:
                 await inter.send(noguild, ephemeral = True)
-
+#Хвардия
         if inter.component.custom_id == "guard":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -468,7 +471,7 @@ class GuildButtonClick(commands.Cog):
                 await logchannel.send(embed=embed)
             else:
                 await inter.send(noguild, ephemeral = True)
-
+#ТучаХаб
         if inter.component.custom_id == "pehub":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -607,7 +610,7 @@ class GuildButtonClick(commands.Cog):
                 await logchannel.send(embed=embed)
             else:
                 await inter.send(noguild, ephemeral = True)
-
+#Орден яичных 2.0
         if inter.component.custom_id == "orden":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
@@ -742,6 +745,133 @@ class GuildButtonClick(commands.Cog):
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
                 memberop.remove_roles(ordenrole)
+                await phoenix.send(embed=embed)
+                await logchannel.send(embed=embed)
+            else:
+                await inter.send(noguild, ephemeral = True)
+#Лисята-руины 2.0
+        if inter.component.custom_id == "foxes":
+            if memberop.id in guildmembers:
+                await inter.send(resno, ephemeral = True)
+                return
+            if not memberop.id in guildmembers:
+                chooseemb = discord.Embed(title='Выберите тип заявки', color = 0x2f3136)
+                row = Button(
+                        style = discord.ButtonStyle.gray,
+                        label = 'Вступление в организацию',
+                        custom_id = 'enter_foxes',
+                        emoji= '<:enter:991308332906328125>'
+                    )
+                row2 = Button(
+                        style = discord.ButtonStyle.gray,
+                        label = 'Выход из организации',
+                        custom_id = 'exit_foxes',
+                        emoji= '<:exit:991308335506784276>'
+                    )
+                view=View()
+                view.add_item(row)
+                view.add_item(row2)
+                await inter.send(embed=chooseemb, view = view, ephemeral = True)
+
+        if inter.component.custom_id == "enter_foxes":
+            name = '<:minecraft_fox:952474560639430656> `Лисята`'
+            ticket_name = 'foxes'
+            guildownerid = '660070694377357322'
+            if memberop.id in guildmembers:
+                await inter.send(resno, ephemeral = True)
+                return
+            if not memberop.id in guildmembers:
+                if foxesrole in memberop.roles:
+                    await inter.send(alreadythisguild, ephemeral = True)
+                    return
+                else:
+                    await inter.send(res, ephemeral = True)
+
+                    counterguild += 1
+                    guildmembers.append(memberop.id)
+                    owner = await self.client.fetch_user(int(guildownerid))
+                    channel2 = await guild.create_text_channel(f"guildjoin {ticket_num}", category = mainCategory)
+                    embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
+                    await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
+                    await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
+                    await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
+                    await channel2.send(embed=embinfo)
+                    await channel2.send(embed=emb1)
+                    await channel2.send(embed=nhtrhtrjtremb1)
+                    row = Button(
+                            style = discord.ButtonStyle.grey,
+                            label = 'Одобрить заявку',
+                            custom_id = 'accept_foxes',
+                            emoji= '<:minecraft_accept:1080779491875491882>'
+                        )
+                    row2 = Button(
+                            style = discord.ButtonStyle.grey,
+                            label = 'Отклонить заявку',
+                            custom_id = 'deny_foxes',
+                            emoji= '<:minecraft_deny:1080779495386140684>'
+                        )
+                    view2=View()
+                    view2.add_item(row)
+                    view2.add_item(row2)
+                    msgtic = await channel2.send(embed=embed3, view=view2)
+                    delete = await channel2.send(content = f'{memberop.mention} {owner.mention}')
+                    await delete.delete()
+                    def check(m):
+                        return m.message.id == msgtic.id and m.author.id == int(guildownerid)
+                    try:
+                       m = await self.client.wait_for("button_click", check=check)
+                    except asyncio.TimeoutError:
+                        print("Неизвестная ошибка в коде тикетов") 
+                    else:
+                        if m.component.custom_id == f"accept_foxes":
+                            embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Вступление в организацию одобрено', colour=0x2f3136)
+                            embedth.add_field(name='ID:', value=f'`{ticket_num}`')
+                            embedth.add_field(name='Организация:', value=f'{name}')
+                            embedth.add_field(name='Одорбил заявку:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
+                            embedth.add_field(name='Автор заявки:', value=f'<:member:979406123587223562> `{memberop}`')  
+                            with open(f"guild_{ticket_name}.txt", "a", encoding='utf8') as f:
+                                async for msg12 in channel2.history(limit = 100):
+                                    f.write(f"{msg12.created_at}:{msg12.author} ({msg12.author.id}): {msg12.content} \n")      
+                            await logchannel.send(embed=embedth,file=File(f'guild_{ticket_name}.txt'))
+                            guildmembers.remove(memberop.id)
+                            await channel2.delete()
+                            clsembed=discord.Embed(title="📞 Ответ от организации \"Лисята\"", description=f'Ваша заявка на вступление в организацию {name} одобрена главой организации `{m.author}`.', colour = 0x2f3136)
+                            clsembed.set_thumbnail(url="https://cdn.discordapp.com/attachments/856561382484475904/979389736462458910/953725334627430411.png")
+                            clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                            await memberop.send(embed = clsembed)
+                            await memberop.add_roles(foxesrole)
+                            os.remove(f'guild_{ticket_name}.txt')
+                            return
+                        if m.component.custom_id == f"deny_foxes":
+                            embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Вступление в организацию отклонено', colour=0x2f3136)
+                            embedth.add_field(name='ID:', value=f'`{ticket_num}`')
+                            embedth.add_field(name='Организация:', value=f'{name}')
+                            embedth.add_field(name='Отклонил заявку:', value=f'<:moderatorbadge:953725334518378616> `{m.author}`')
+                            embedth.add_field(name='Автор заявки:', value=f'<:member:979406123587223562> `{memberop}`')  
+                            with open(f"guild_{ticket_name}.txt", "a", encoding='utf8') as f:
+                                async for msg12 in channel2.history(limit = 100):
+                                    f.write(f"{msg12.created_at}:{msg12.author} ({msg12.author.id}): {msg12.content} \n")      
+                            await logchannel.send(embed=embedth,file=File(f'guild_{ticket_name}.txt'))
+                            guildmembers.remove(memberop.id)
+                            await channel2.delete()
+                            clsembed=discord.Embed(title="📞 Ответ от организации \"Лисята\"", description=f'Ваша заявка на вступление в организацию {name} отклонена главой организации `{m.author}`.', colour = 0x2f3136)
+                            clsembed.set_thumbnail(url="https://cdn.discordapp.com/attachments/856561382484475904/979389736462458910/953725334627430411.png")
+                            clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                            await memberop.send(embed = clsembed)
+                            os.remove(f'guild_{ticket_name}.txt')
+                            return
+        if inter.component.custom_id == f"exit_foxes":
+            name = '<:minecraft_fox:952474560639430656> `Лисята`'
+            ticket_name = 'foxes'
+            guildownerid = '660070694377357322'
+
+            if foxesrole in memberop.roles:
+                await inter.send(res, ephemeral = True)
+                embed = discord.Embed(title='Игрок покинул вашу организацию', description=f'Игрок: {memberop} \nОрганизация: {name}.', color = 0x2f3136)
+                embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
+                embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
+                phoenix = await self.client.fetch_user(int(guildownerid))
+                memberop.remove_roles(foxesrole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:

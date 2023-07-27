@@ -61,6 +61,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
+#Лисята
+        guardmsg = await guildchnl.fetch_message(1134089168960622703)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'foxes', emoji= '<:minecraft_fox:952474560639430656>')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await guardmsg.edit(view=viewverify)   
 
 
 
