@@ -48,7 +48,7 @@ class ButtonClick(commands.Cog):
         color = 0x2f3136)
         dcadmins = discord.Embed(
         title='Добро пожаловать в службу поддержки Discord.', 
-        description='Чтобы получить ответ как можно быстрее, опишите суть вашего обращения к администрации как можно подробнее.\nАдминистрация проекта в ближайшее время рассмотрит ваше обращение.', 
+        description='Чтобы получить ответ как можно быстрее, опишите суть вашего обращения к руководству как можно подробнее.\nАдминистрация проекта в ближайшее время рассмотрит ваше обращение.', 
         color = 0x2f3136)
         mcreport = discord.Embed(
         title='Добро пожаловать в службу поддержки Minecraft.', 
@@ -68,7 +68,7 @@ class ButtonClick(commands.Cog):
         color = 0x2f3136)
         mcadmins = discord.Embed(
         title='Добро пожаловать в службу поддержки Minecraft.', 
-        description='Чтобы получить ответ как можно быстрее, опишите суть вашего обращения к администрации как можно подробнее.\nАдминистрация проекта в ближайшее время рассмотрит ваше обращение.', 
+        description='Чтобы получить ответ как можно быстрее, опишите суть вашего обращения к руководству как можно подробнее.\nАдминистрация проекта в ближайшее время рассмотрит ваше обращение.', 
         color = 0x2f3136)
         responceemb = discord.Embed(title='Когда мне ответят?', description=" Обращения разбираются в порядке очереди. В среднем обращения разбираются от 1 до 3-х часов в рабочие дни с 10:00 по 00:00. В выходные время ответа может быть дольше, но не более 9-ти часов. \n\nЕсли с момента отправки последнего сообщения прошло более 3-х часов, а вам не ответили - можете упомянуть <@&939476433196171324>. \nЕсли прошло более 6-ти часов - упоминайте <@&922561682780332102>.", color = 0x2f3136)
         buttonembed = discord.Embed(title='', description='<:info:871310064135327775> Обращения закрываются сотрудниками кнопкой ниже.', color = 0x2f3136)
@@ -112,7 +112,7 @@ class ButtonClick(commands.Cog):
                     )
                 row6 = Button(
                         style = discord.ButtonStyle.danger,
-                        label = 'Обращение к администрации',
+                        label = 'Обращение к руководству',
                         custom_id = 'discord_admins',
                         emoji= '<:message:1105891497255108679>'
                     )
@@ -134,14 +134,14 @@ class ButtonClick(commands.Cog):
                 countervopros += 1
                 voprosmembers.append(memberop.id)
                 ticket_server = '<:discord:856561477033263124> `Discord`'
-                ticket_type = '<:admins:1105927773219987486> `Обращение к администрации`'
+                ticket_type = '<:admins:1105927773219987486> `Обращение к руководству`'
                 ticket_systemname= 'admin_discord'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
 
-                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:**  `{ticket_num}` \n\n**Сервер:** <:discord:856561477033263124> `Discord`. \n**Тип обращения:** <:admins:1105927773219987486> `Обращение к администрации`.', color = 0x2f3136)
+                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:**  `{ticket_num}` \n\n**Сервер:** <:discord:856561477033263124> `Discord`. \n**Тип обращения:** <:admins:1105927773219987486> `Обращение к руководству`.', color = 0x2f3136)
                 emb1 = dcadmins
                 responceemb = responceemb
                 buttonembed = buttonembed
@@ -502,7 +502,7 @@ class ButtonClick(commands.Cog):
                     )
                 row6 = Button(
                         style = discord.ButtonStyle.danger,
-                        label = 'Обращение к администрации',
+                        label = 'Обращение к руководству',
                         custom_id = 'discord_admins',
                         emoji= '<:message:1105891497255108679>'
                     )
@@ -524,14 +524,14 @@ class ButtonClick(commands.Cog):
                 countervopros += 1
                 voprosmembers.append(memberop.id)
                 ticket_server = '<:minecraft:856561476873355316>  `Minecraft`'
-                ticket_type = '<:admins:1105927773219987486> `Обращение к администрации`'
+                ticket_type = '<:admins:1105927773219987486> `Обращение к руководству`'
                 ticket_systemname= 'admin_mc'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
 
-                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:**  `{ticket_num}` \n\n**Сервер:** <:minecraft:856561476873355316>  `Minecraft`. \n**Тип обращения:** <:admins:1105927773219987486> `Обращение к администрации`.', color = 0x2f3136)
+                embinfo = discord.Embed(title='<:info:871310064135327775> Информация об обращении', description=f'**Автор:** <:member:1105878287978340415> `{memberop}` \n **ID обращения:**  `{ticket_num}` \n\n**Сервер:** <:minecraft:856561476873355316>  `Minecraft`. \n**Тип обращения:** <:admins:1105927773219987486> `Обращение к руководству`.', color = 0x2f3136)
                 emb1 = mcadmins
                 responceemb = responceemb
                 buttonembed = buttonembed
