@@ -138,6 +138,8 @@ class ButtonClick(commands.Cog):
                 ticket_systemname= 'admin_discord'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
+                await channel2.set_permissions(staffrole,send_messages=False,read_messages=False,read_message_history=False)
+                await channel2.set_permissions(internrole,send_messages=False,read_messages=False,read_message_history=False)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
 
@@ -205,7 +207,6 @@ class ButtonClick(commands.Cog):
                 ticket_systemname= 'report_discord'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
-                staffrole = staffrole
                 await channel2.set_permissions(staffrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(internrole,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
@@ -528,6 +529,8 @@ class ButtonClick(commands.Cog):
                 ticket_systemname= 'admin_mc'
                 mainCategory = mainCategory
                 channel2 = await guild.create_text_channel(f"ticket {ticket_num}", category = mainCategory)
+                await channel2.set_permissions(staffrole,send_messages=False,read_messages=False,read_message_history=False)
+                await channel2.set_permissions(internrole,send_messages=False,read_messages=False,read_message_history=False)
                 await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                 await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
 
