@@ -67,6 +67,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
+#Медная сакура
+        sakuramsg = await guildchnl.fetch_message(1137359003157012502)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'sakura', emoji= '⚙')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await sakuramsg.edit(view=viewverify)   
 
 
 
