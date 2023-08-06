@@ -104,6 +104,9 @@ class GuildButtonClick(commands.Cog):
                 if ordenrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
+                if sakurarole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
                 else:
                     await inter.send(res, ephemeral = True)
                     global counterguild
@@ -497,6 +500,9 @@ class GuildButtonClick(commands.Cog):
                 if ordenrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
+                if sakurarole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
                 else:
                     await inter.send(res, ephemeral = True)
 
@@ -635,6 +641,9 @@ class GuildButtonClick(commands.Cog):
                     return
                 if ordenrole in memberop.roles:
                     await inter.send(alreadythisguild, ephemeral = True)
+                    return
+                if sakurarole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
                     return
                 else:
                     await inter.send(res, ephemeral = True)
