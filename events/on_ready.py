@@ -39,7 +39,7 @@ class OnReady(commands.Cog):
         await japanmsg.edit(view=viewverify) 
 #Авиньон
         avimsg = await guildchnl.fetch_message(1080413919291641876)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'avignon', emoji= '🗺️')
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'avignon', emoji= '🌁')
         viewverify=View()
         viewverify.add_item(verify)
         await avimsg.edit(view=viewverify)
@@ -73,6 +73,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await sakuramsg.edit(view=viewverify)   
+#Черный круг
+        blackmsg = await guildchnl.fetch_message(1138522957539446964)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'black', emoji= '⚫')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await blackmsg.edit(view=viewverify)   
 
 
 
