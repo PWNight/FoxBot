@@ -43,7 +43,7 @@ class GuildButtonClick(commands.Cog):
         sakuraroleid = '1137365227063742515'
         sakurarole = discord.utils.get(guild.roles,id=int(sakuraroleid)) 
 
-        blackroleid = '1137365227063742515'
+        blackroleid = '1138523000984051782'
         blackrole = discord.utils.get(guild.roles,id=int(blackroleid)) 
 
 #Текстовая информация
@@ -1141,12 +1141,18 @@ class GuildButtonClick(commands.Cog):
                     guildmembers.append(memberop.id)
                     owner = await self.client.fetch_user(int(guildownerid))
                     channel2 = await guild.create_text_channel(f"guildjoin {ticket_num}", category = mainCategory)
+                    emb1spec = discord.Embed(title='Добро пожаловать в службу организаций', description='''Заполните заявку по следующей форме: 1) Ваш ник на сервере
+                    2) Сколько вам лет?
+                    3) Как часто вы играете на сервере?
+                    4) Сколько вы играете в Майнкрафт вообщем?
+                    5) Расскажите о своих навыках
+                    6) Почему вы выбрали именно нашу организацию?''', color = 0x2f3136)
                     embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                     await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                     await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
                     await channel2.set_permissions(guild.default_role,send_messages=False,read_messages=False,read_message_history=False)
                     await channel2.send(embed=embinfo)
-                    await channel2.send(embed=emb1)
+                    await channel2.send(embed=emb1spec)
                     await channel2.send(embed=nhtrhtrjtremb1)
                     row = Button(
                             style = discord.ButtonStyle.grey,
