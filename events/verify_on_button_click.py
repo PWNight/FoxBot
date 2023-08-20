@@ -22,8 +22,8 @@ class VerifyButtonClick(commands.Cog):
         role = discord.utils.get(guild.roles, id=1131924719902400554)
         
         #Текстовая информация для тикетов.
-        resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. Ожидайте решения по предыдущей заявке, чтобы открыть новую.'
-        maintenance = '<:minecraft_deny:1080779495386140684> Верификация временно недоступна, ассистент активирован в режиме технических работ, приносим свои извинения.'
+        resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. \nОжидайте решения по предыдущей заявке, чтобы открыть новую.'
+        maintenance = '<:minecraft_deny:1080779495386140684> Верификация временно недоступна. \nПричина: проведение технических работ. \nВ ближайшее время данная функция будет восстановлена.'
 
         if inter.component.custom_id == "maintenance":
             await inter.send(maintenance, ephemeral = True)
@@ -57,6 +57,12 @@ class VerifyButtonClick(commands.Cog):
                             label="Расскажите немного о себе",
                             placeholder="Это необходимо для знакомства с вами",
                             custom_id="Об игроке",
+                            style=TextInputStyle.paragraph,
+                        ),
+                        discord.ui.TextInput(
+                            label="Чем вы планируете заняться на сервере?",
+                            placeholder="Построить крутой дом? Поучаствовать в ивентах? ",
+                            custom_id="О деятельности",
                             style=TextInputStyle.paragraph,
                         ),
                     ],
