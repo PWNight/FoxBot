@@ -192,7 +192,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(rolejapan)
+                await memberop.remove_roles(rolejapan)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
@@ -318,7 +318,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(roleavignon)
+                await memberop.remove_roles(roleavignon)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
@@ -445,7 +445,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(guardrole)
+                await memberop.remove_roles(guardrole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
@@ -587,7 +587,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(pehubrole)
+                await memberop.remove_roles(pehubrole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
@@ -789,7 +789,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(sakurarole)
+                await memberop.remove_roles(sakurarole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
@@ -939,7 +939,7 @@ class GuildButtonClick(commands.Cog):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                memberop.remove_roles(blackrole)
+                await memberop.remove_roles(blackrole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
