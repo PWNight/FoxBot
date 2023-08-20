@@ -47,7 +47,7 @@ class GuildButtonClick(commands.Cog):
         noguild = '<:minecraft_deny:1080779495386140684> Вы не являетесь участником данной организации.'
         alreadyguild = '<:minecraft_deny:1080779495386140684> Вы уже состоите в другой организации.'
         alreadythisguild = '<:minecraft_deny:1080779495386140684> Вы уже состоите в данной организации.'
-        emb1 = discord.Embed(title='Добро пожаловать в службу организаций', description='Заполните заявку по следующей форме: \n1) Ваш никнейм на сервере. \n2) Количество наигранных часов\n 3)Почему вы решили вступить в данную организацию.', color = 0x2f3136)
+        emb1 = discord.Embed(title='Добро пожаловать в службу организаций', description='Заполните заявку по следующей форме: \n1) Ваш никнейм на сервере. \n2) Количество наигранных часов\n 3) Почему вы решили вступить в данную организацию.', color = 0x2f3136)
         nhtrhtrjtremb1 = discord.Embed(title='Когда мне ответят?', description="Время рассмотрения заявки зависит от главы организации, но обычно заявки рассматриваются в течение дня.", color = 0x2f3136)
         embed3 = discord.Embed(title='', description='<:info:871310064135327775> Заявки на вступление рассматриваются главой организации с помощью кнопок ниже.', color = 0x2f3136)
 #Временное отключение организации
@@ -365,6 +365,7 @@ class GuildButtonClick(commands.Cog):
                     guildmembers.append(memberop.id)
                     owner = await self.client.fetch_user(int(guildownerid))
                     channel2 = await guild.create_text_channel(f"guildjoin {ticket_num}", category = mainCategory)
+                    emb1 = discord.Embed(title='Добро пожаловать в службу организаций', description='Заполните заявку по следующей форме: \n1) Ваш никнейм. \n2) На сколько вы хорошо сражаетесь? \n 3) Сколько вам лет? \n4) Если предложат за деньги предать нас, предашь?', color = 0x2f3136)
                     embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                     await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                     await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
