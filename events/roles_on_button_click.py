@@ -50,8 +50,8 @@ class RolesButtonClick(commands.Cog):
                 await inter.send(embed=chooseemb, view = view, ephemeral = True)
                 return
         if inter.component.custom_id == "discord_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191584590549052> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191584590549052> успешно снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191584590549052> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191584590549052> снята.'
             discordnewsrole = discord.utils.get(guild.roles, id=1095191584590549052)
             if discordnewsrole in memberop.roles:
                 await memberop.remove_roles(discordnewsrole)
@@ -62,8 +62,8 @@ class RolesButtonClick(commands.Cog):
                 await memberop.add_roles(newsrole)
                 await inter.send(resyes, ephemeral = True)
         if inter.component.custom_id == "minecraft_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191555972804739> успешно снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191555972804739> снята.'
             minecraftnewsrole = discord.utils.get(guild.roles, id=1095191555972804739)
             if minecraftnewsrole in memberop.roles:
                 await memberop.remove_roles(minecraftnewsrole)
@@ -94,8 +94,8 @@ class RolesButtonClick(commands.Cog):
                 await inter.send(embed=chooseemb, view = view, ephemeral = True)
                 return
         if inter.component.custom_id == "discord_annonces":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191824898990151> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191824898990151> успешно снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191824898990151> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191824898990151> снята.'
             discordannoncesrole = discord.utils.get(guild.roles, id=1095191824898990151)
             if discordannoncesrole in memberop.roles:
                 await memberop.remove_roles(discordannoncesrole)
@@ -107,8 +107,8 @@ class RolesButtonClick(commands.Cog):
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "minecraft_annonces":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926> успешно снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926> снята.'
             minecraftanoncesrole = discord.utils.get(guild.roles, id=951475369041616926)
             if minecraftanoncesrole in memberop.roles:
                 await memberop.remove_roles(minecraftanoncesrole)
@@ -120,8 +120,8 @@ class RolesButtonClick(commands.Cog):
                 await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "access":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1035615119213854803> успешно выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1035615119213854803> успешно снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1035615119213854803> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1035615119213854803> снята.'
             role = discord.utils.get(guild.roles, id=1035615119213854803)
             if role in memberop.roles:
                 role = discord.utils.get(guild.roles, id=1035615119213854803)
