@@ -22,8 +22,8 @@ class VerifyButtonClick(commands.Cog):
         role = discord.utils.get(guild.roles, id=1131924719902400554)
         
         #Текстовая информация для тикетов.
-        resno = '<:minecraft_deny:1080779495386140684> У вас уже есть отправленная заявка. \nОжидайте решения по предыдущей заявке, чтобы открыть новую.'
-        maintenance = '<:minecraft_deny:1080779495386140684> Верификация временно недоступна. \nПричина: проведение технических работ. \nВ ближайшее время данная функция будет восстановлена.'
+        resno = '<:minecraft_deny:1080779495386140684> **У вас уже есть отправленная заявка.** \nОжидайте решения по предыдущей заявке, чтобы открыть новую.'
+        maintenance = '<:minecraft_deny:1080779495386140684> **Верификация временно недоступна.** \nПричина: проведение технических работ. \nВ ближайшее время данная функция будет восстановлена.'
 
         if inter.component.custom_id == "maintenance":
             await inter.send(maintenance, ephemeral = True)
@@ -73,7 +73,7 @@ class VerifyButtonClick(commands.Cog):
                     print("Неизвестная ошибка в коде верификации")
                     return 
                 else:
-                    await inter.response.send_message(content='<:minecraft_accept:1080779491875491882> Ваша заявка была отправлена. Решение по вашей заявке будет отправлено вам в ЛС.', ephemeral = True)
+                    await inter.response.send_message(content='<:minecraft_accept:1080779491875491882> **Ваша заявка была отправлена.** \nРешение по вашей заявке будет отправлено вам в ЛС.', ephemeral = True)
                     embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка пользователя {memberop.mention} ({memberop.display_name})", color = 0x2f3136)
                     for key, value in inter.text_values.items():
                         embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)
@@ -113,9 +113,9 @@ class VerifyButtonClick(commands.Cog):
                                 rcon.stop()
                             embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка пользователя {memberop.mention} ({memberop.display_name}) \n\n**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята \n**Принял заявку:** {m.author.mention}", color = 0x2f3136)
                             for key, value in inter.text_values.items():
-                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
+                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention}. \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention} ({m.author.display_name}). \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры! C любовью к своему делу, команда проекта FoxWorld.', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
@@ -126,7 +126,7 @@ class VerifyButtonClick(commands.Cog):
                             for key, value in inter.text_values.items():
                                 embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
-                            clsembed=discord.Embed(title="📞 Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {m.author.mention}. \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения, с любовью к своему делу, команда проекта FoxWorld!', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была отклонена Сотрудником {m.author.mention} ({m.author.display_name}). \nВозможно, причиной отклонения послужило неправильно заполненное поле Никнейма. \n\nНе расстраивайтесь, вы можете узнать причину отклонения у одного из Сотрудников проекта, мы будем рады помочь вам! \n\nОжидаем вашего обращения! C любовью к своему делу, команда проекта FoxWorld.', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
