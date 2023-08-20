@@ -186,7 +186,7 @@ class OnReady(commands.Cog):
                 await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
                 return
 
-    @tasks.loop(minutes = 0.2)
+    @tasks.loop(seconds= 30)
     async def status_task(self):
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))

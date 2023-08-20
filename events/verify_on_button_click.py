@@ -113,7 +113,7 @@ class VerifyButtonClick(commands.Cog):
                                 rcon.stop()
                             embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка пользователя {memberop.mention} ({memberop.display_name}) \n\n**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята \n**Принял заявку:** {m.author.mention}", color = 0x2f3136)
                             for key, value in inter.text_values.items():
-                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)
+                                embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
                             await logchannel.send(embed=embinfo)
                             clsembed=discord.Embed(title="Поддержка проекта FoxWorld", description=f'Приветствую! \nВаша заявка на наш сервер была одобрена Сотрудником {m.author.mention} ({m.author.display_name}). \nТеперь вы получили статус игрока нашего проекта и уже можете зайти на сервер. \n\nСчастливой игры! C любовью к своему делу, команда проекта FoxWorld.', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1105891497255108679.webp?size=96&quality=lossless")
