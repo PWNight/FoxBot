@@ -21,8 +21,8 @@ class OnReady(commands.Cog):
 
         guild = self.client.get_guild(921483461016031263)
 
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         guildchnl = await self.client.fetch_channel(991247514495885393)
 #Новая организация
@@ -55,18 +55,6 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
-#Орден
-        guardmsg = await guildchnl.fetch_message(1134085724845654046)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'orden', emoji= '🥶')
-        viewverify=View()
-        viewverify.add_item(verify)
-        await guardmsg.edit(view=viewverify)   
-#Лисята
-        guardmsg = await guildchnl.fetch_message(1134089168960622703)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'foxes', emoji= '<:minecraft_fox:952474560639430656>')
-        viewverify=View()
-        viewverify.add_item(verify)
-        await guardmsg.edit(view=viewverify)   
 #Медная сакура
         sakuramsg = await guildchnl.fetch_message(1137359003157012502)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'sakura', emoji= '⚙')
@@ -89,13 +77,15 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
-                custom_id = 'discord_openticket', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'discord_openticket',
+                custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! 
+                #custom_id = 'discord_openticket'
                 emoji= '<:discord:856561477033263124>'
             )
         row2 = Button(
                 style = discord.ButtonStyle.green,
                 label = 'Minecraft',
-                custom_id = 'minecraft_openticket', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! #custom_id = 'minecraft_openticket',
+                custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
+                #custom_id = 'minecraft_openticket'
                 emoji= '<:minecraft:856561476873355316>'
             )
         view=View()
@@ -111,6 +101,7 @@ class OnReady(commands.Cog):
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку',
                 custom_id = 'verify', #verify #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!!
+                #custom_id = 'maintenance'
                 emoji= '<:message:1105891497255108679>'
             )
         view=View()
