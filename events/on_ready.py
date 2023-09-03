@@ -28,6 +28,7 @@ class OnReady(commands.Cog):
 #Новая организация
         newmsg = await guildchnl.fetch_message(1045046216989343834)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'newguild', emoji= '<:invite:1105878276242673725>')
+        #verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'maintenance_guild', emoji= '<:invite:1105878276242673725>') #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
         viewverify=View()
         viewverify.add_item(verify)
         await newmsg.edit(view=viewverify) 
