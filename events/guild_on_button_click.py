@@ -31,8 +31,8 @@ class GuildButtonClick(commands.Cog):
         guardroleid = '1128764905063985232'
         guardrole = discord.utils.get(guild.roles,id=int(guardroleid)) 
 
-        pehubroleid = '1132004725311672360'
-        pehubrole = discord.utils.get(guild.roles,id=int(pehubroleid)) 
+        santamonikaroleid = '1147963942614876241'
+        santamonikarole = discord.utils.get(guild.roles,id=int(santamonikaroleid)) 
 
         sakuraroleid = '1137365227063742515'
         sakurarole = discord.utils.get(guild.roles,id=int(sakuraroleid)) 
@@ -95,7 +95,7 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if pehubrole in memberop.roles:
+                if santamonikarole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 if sakurarole in memberop.roles:
@@ -452,7 +452,7 @@ class GuildButtonClick(commands.Cog):
             else:
                 await inter.send(noguild, ephemeral = True)
 #ТучаХаб
-        if inter.component.custom_id == "pehub":
+        if inter.component.custom_id == "santamonika":
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
                 return
@@ -461,13 +461,13 @@ class GuildButtonClick(commands.Cog):
                 row = Button(
                         style = discord.ButtonStyle.gray,
                         label = 'Вступление в организацию',
-                        custom_id = 'enter_pehub',
+                        custom_id = 'enter_santamonika',
                         emoji= '<:enter:991308332906328125>'
                     )
                 row2 = Button(
                         style = discord.ButtonStyle.gray,
                         label = 'Выход из организации',
-                        custom_id = 'exit_pehub',
+                        custom_id = 'exit_santamonika',
                         emoji= '<:exit:991308335506784276>'
                     )
                 view=View()
@@ -475,10 +475,10 @@ class GuildButtonClick(commands.Cog):
                 view.add_item(row2)
                 await inter.send(embed=chooseemb, view = view, ephemeral = True)
 
-        if inter.component.custom_id == "enter_pehub":
-            name = '🤡 `PeHub`'
-            ticket_name = 'pehub'
-            guildownerid = '797939500412174396'
+        if inter.component.custom_id == "enter_santamonika":
+            name = '<:coffee:1037730229487161354> `Санта-Моника`'
+            ticket_name = 'santamonika'
+            guildownerid = '622845283235135508'
             if memberop.id in guildmembers:
                 await inter.send(resno, ephemeral = True)
                 return
@@ -492,7 +492,7 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if pehubrole in memberop.roles:
+                if santamonikarole in memberop.roles:
                     await inter.send(alreadythisguild, ephemeral = True)
                     return
                 if sakurarole in memberop.roles:
@@ -518,13 +518,13 @@ class GuildButtonClick(commands.Cog):
                     row = Button(
                             style = discord.ButtonStyle.grey,
                             label = 'Одобрить заявку',
-                            custom_id = 'accept_pehub',
+                            custom_id = 'accept_santamonika',
                             emoji= '<:minecraft_accept:1080779491875491882>'
                         )
                     row2 = Button(
                             style = discord.ButtonStyle.grey,
                             label = 'Отклонить заявку',
-                            custom_id = 'deny_pehub',
+                            custom_id = 'deny_santamonika',
                             emoji= '<:minecraft_deny:1080779495386140684>'
                         )
                     view2=View()
@@ -540,7 +540,7 @@ class GuildButtonClick(commands.Cog):
                     except asyncio.TimeoutError:
                         print("Неизвестная ошибка в коде тикетов") 
                     else:
-                        if m.component.custom_id == f"accept_pehub":
+                        if m.component.custom_id == f"accept_santamonika":
                             embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Вступление в организацию одобрено', colour=0x2f3136)
                             embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                             embedth.add_field(name='Организация:', value=f'{name}')
@@ -556,10 +556,10 @@ class GuildButtonClick(commands.Cog):
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/attachments/856561382484475904/979389736462458910/953725334627430411.png")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
-                            await memberop.add_roles(pehubrole)
+                            await memberop.add_roles(santamonikarole)
                             os.remove(f'guild_{ticket_name}.txt')
                             return
-                        if m.component.custom_id == f"deny_pehub":
+                        if m.component.custom_id == f"deny_santamonika":
                             embedth = discord.Embed(title=f'<:blurplelock:856563321321816104> Вступление в организацию отклонено', colour=0x2f3136)
                             embedth.add_field(name='ID:', value=f'`{ticket_num}`')
                             embedth.add_field(name='Организация:', value=f'{name}')
@@ -571,29 +571,28 @@ class GuildButtonClick(commands.Cog):
                             await logchannel.send(embed=embedth,file=File(f'guild_{ticket_name}.txt'))
                             guildmembers.remove(memberop.id)
                             await channel2.delete()
-                            clsembed=discord.Embed(title="📞 Ответ от организации \"PeHub\"", description=f'Ваша заявка на вступление в организацию {name} отклонена главой организации `{m.author}`.', colour = 0x2f3136)
+                            clsembed=discord.Embed(title="📞 Ответ от организации \"Санта-Моника\"", description=f'Ваша заявка на вступление в организацию {name} отклонена главой организации `{m.author}`.', colour = 0x2f3136)
                             clsembed.set_thumbnail(url="https://cdn.discordapp.com/attachments/856561382484475904/979389736462458910/953725334627430411.png")
                             clsembed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                             await memberop.send(embed = clsembed)
                             os.remove(f'guild_{ticket_name}.txt')
                             return
-        if inter.component.custom_id == f"exit_pehub":
-            name = '🤡 `PeHub`'
-            ticket_name = 'pehub'
-            guildownerid = '797939500412174396'
+        if inter.component.custom_id == f"exit_santamonika":
+            name = ':coffee:1037730229487161354> `Санта-Моника`'
+            ticket_name = 'santamonika'
+            guildownerid = '622845283235135508'
 
-            if pehubrole in memberop.roles:
+            if santamonikarole in memberop.roles:
                 await inter.send(res, ephemeral = True)
                 embed = discord.Embed(title='Игрок покинул вашу организацию', description=f'Игрок: {memberop} \nОрганизация: {name}.', color = 0x2f3136)
                 embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/991308335506784276.webp?size=96&quality=lossless")
                 embed.set_footer(text=f"FoxWorld ©️ 2021 - 2023", icon_url="https://cdn.discordapp.com/attachments/939510519629479946/1019317064479035443/Fox5.png")
                 phoenix = await self.client.fetch_user(int(guildownerid))
-                await memberop.remove_roles(pehubrole)
+                await memberop.remove_roles(santamonikarole)
                 await phoenix.send(embed=embed)
                 await logchannel.send(embed=embed)
             else:
                 await inter.send(noguild, ephemeral = True)
-
 
         if inter.component.custom_id == "newguild":
             if memberop.id in guildmembers:
@@ -694,7 +693,7 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if pehubrole in memberop.roles:
+                if santamonikarole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 if sakurarole in memberop.roles:
@@ -837,7 +836,7 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if pehubrole in memberop.roles:
+                if santamonikarole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
 

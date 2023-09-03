@@ -21,8 +21,8 @@ class OnReady(commands.Cog):
 
         guild = self.client.get_guild(921483461016031263)
 
-        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         guildchnl = await self.client.fetch_channel(991247514495885393)
 #Новая организация
@@ -49,9 +49,9 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
-#PeHub
-        guardmsg = await guildchnl.fetch_message(1132005691972919357)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'pehub', emoji= '🤡')
+#Santamonika
+        guardmsg = await guildchnl.fetch_message(1147963862625308782)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'santamonika', emoji= '<:coffee:1037730229487161354>')
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
@@ -77,15 +77,15 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
-                custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! 
-                #custom_id = 'discord_openticket'
+                #custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! 
+                custom_id = 'discord_openticket',
                 emoji= '<:discord:856561477033263124>'
             )
         row2 = Button(
                 style = discord.ButtonStyle.green,
                 label = 'Minecraft',
-                custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
-                #custom_id = 'minecraft_openticket'
+                #custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
+                custom_id = 'minecraft_openticket',
                 emoji= '<:minecraft:856561476873355316>'
             )
         view=View()
@@ -186,7 +186,7 @@ class OnReady(commands.Cog):
                 await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
                 return
 
-    @tasks.loop(seconds= 30)
+    @tasks.loop(minutes = 0.2)
     async def status_task(self):
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
