@@ -158,7 +158,7 @@ class OnReady(commands.Cog):
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
         date = datetime.datetime.now(tzinfo)
-        embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        embed = discord.Embed(title='Minecraft', description= '''VanillaPlus — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
         Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
@@ -202,7 +202,7 @@ class OnReady(commands.Cog):
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        embed = discord.Embed(title='Minecraft', description= '''FoxWorld Vanilla+ — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
+        embed = discord.Embed(title='Minecraft', description= '''VanillaPlus — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
         Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
