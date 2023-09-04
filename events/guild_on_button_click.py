@@ -243,6 +243,7 @@ class GuildButtonClick(commands.Cog):
                     guildmembers.append(memberop.id)
                     owner = await self.client.fetch_user(int(guildownerid))
                     channel2 = await guild.create_text_channel(f"guildjoin {ticket_num}", category = mainCategory)
+                    emb1 = discord.Embed(title='Добро пожаловать в службу организаций', description='Заполните заявку по следующей форме: \n1) Расскажите о себе. \n2) Почему именно наша организация?\n 3) Чем будете заниматься в организации(строительство, добыча ресурсов и т.д.). \n4) Укажите время проведённое время в игре на сервере. \n5) Какое количество времени в неделю вы смогли бы уделять? \n6) При выборе строительства приложите скриншоты ваших построек.', color = 0x2f3136)
                     embinfo = discord.Embed(title='Информация об обращении', description=f'**Автор:** <:member:979406123587223562> `{memberop}` \n **ID обращения:** `{ticket_num}` \n\n**Тип обращения:** <:blurplecertifiedmoderator:856563321541230602> `Вступление в организацию` \n**Организация:** {name}', color = 0x2f3136)
                     await channel2.set_permissions(owner,send_messages=True,read_messages=True,read_message_history=True)
                     await channel2.set_permissions(memberop,send_messages=True,read_messages=True,read_message_history=True)
