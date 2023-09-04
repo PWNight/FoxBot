@@ -17,7 +17,9 @@ class RolesButtonClick(commands.Cog):
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
         > 📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
         
-        > 📦 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
+        > 📹 — оповещения о новых видеороликах и стримах по проекту.
+                             
+        > 🔓 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
         await ctx.send(embed=emb1)
         await ctx.send(embed=emb2)
 
@@ -49,10 +51,22 @@ class RolesButtonClick(commands.Cog):
                 view.add_item(row2)
                 await inter.send(embed=chooseemb, view = view, ephemeral = True)
                 return
+        if inter.component.custom_id == "media":
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1147216415720480890> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1147216415720480890> снята.'
+            mediarole = discord.utils.get(guild.roles, id=1147216415720480890)
+            if mediarole in memberop.roles:
+                await memberop.remove_roles(mediarole)
+                await inter.send(resno, ephemeral = True)
+                return
+            if not mediarole in memberop.roles:
+                await memberop.add_roles(mediarole)
+                await memberop.add_roles(newsrole)
+                await inter.send(resyes, ephemeral = True)
         if inter.component.custom_id == "discord_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191584590549052> выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191584590549052> снята.'
-            discordnewsrole = discord.utils.get(guild.roles, id=1095191584590549052)
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1147216415720480890> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1147216415720480890> снята.'
+            discordnewsrole = discord.utils.get(guild.roles, id=1147216415720480890)
             if discordnewsrole in memberop.roles:
                 await memberop.remove_roles(discordnewsrole)
                 await inter.send(resno, ephemeral = True)

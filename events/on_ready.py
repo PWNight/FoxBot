@@ -128,6 +128,8 @@ class OnReady(commands.Cog):
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
         > 📆 — оповещения о предстоящих событиях проекта в канале  <#1100414892609130527>.
         
+        > 📹 — оповещения о новых видеороликах и стримах по проекту.
+                             
         > 🔓 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
         row = Button(
                 style = discord.ButtonStyle.gray,
@@ -141,6 +143,11 @@ class OnReady(commands.Cog):
             )
         row3 = Button(
                 style = discord.ButtonStyle.gray,
+                custom_id = 'media',
+                emoji= '📹'
+            )
+        row4 = Button(
+                style = discord.ButtonStyle.gray,
                 custom_id = 'access',
                 emoji= '📦'
             )
@@ -148,6 +155,7 @@ class OnReady(commands.Cog):
         view.add_item(row)
         view.add_item(row2)
         view.add_item(row3)
+        view.add_item(row4)
         await notifymsg.edit(embed = emb2, view=view)
 
         statuschnl = await self.client.fetch_channel(939438241290022924) 
