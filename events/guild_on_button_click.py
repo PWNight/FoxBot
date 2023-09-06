@@ -21,7 +21,7 @@ class GuildButtonClick(commands.Cog):
         ticket_num = shortuuid.ShortUUID().random(length=6)
         logchannel = self.client.get_channel(939513221046472744) # ID канала с логами.
         mainCategory = discord.utils.get(guild.categories, id=939513361425657947)
-
+#Роли и их ID
         japanroleid = '1045186866430881802'
         rolejapan = discord.utils.get(guild.roles,id=int(japanroleid))
 

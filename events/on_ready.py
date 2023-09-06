@@ -69,11 +69,9 @@ class OnReady(commands.Cog):
         viewverify.add_item(verify)
         await blackmsg.edit(view=viewverify)   
 
-
-
-        ticketchnl = await self.client.fetch_channel(939438939259949067) # ID канала, где при нажатии на реакцию создаётся тикет.
+#Обновление канала поддержки
+        ticketchnl = await self.client.fetch_channel(939438939259949067) 
         ticketmsg = await ticketchnl.fetch_message(1105549141922291782)
-
         emb = discord.Embed(description= '🔻 Выберите сервер, по которому желаете создать обращение', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
@@ -93,10 +91,10 @@ class OnReady(commands.Cog):
         view.add_item(row)
         view.add_item(row2)
         await ticketmsg.edit(embed = emb, view=view)
-        
-        verifychnl = await self.client.fetch_channel(1111325108217315368) # ID канала, где при нажатии на реакцию создаётся тикет.
-        verifymsg = await verifychnl.fetch_message(1125044148890779720)
 
+#Обновление канала Верификации        
+        verifychnl = await self.client.fetch_channel(1111325108217315368) 
+        verifymsg = await verifychnl.fetch_message(1125044148890779720)
         emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
@@ -109,9 +107,9 @@ class OnReady(commands.Cog):
         view.add_item(row)
         await verifymsg.edit(embed = emb, view=view)
 
+#Обновление канала набора кадров
         naborchnl = await self.client.fetch_channel(1126877107658707074) # ID канала, где при нажатии на реакцию создаётся тикет.
         nabormsg = await naborchnl.fetch_message(1127575031682183290)
-
         emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку в команду проекта.', colour = 0x2f3136)
         row = Button(
                 style = discord.ButtonStyle.blurple,
@@ -123,6 +121,7 @@ class OnReady(commands.Cog):
         view.add_item(row)
         await nabormsg.edit(embed = emb, view=view)
 
+#Обновление канала с уведомлениями
         notifychnl = await self.client.fetch_channel(939438241290022924)
         notifymsg = await notifychnl.fetch_message(1107322507473723412)
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
@@ -158,6 +157,7 @@ class OnReady(commands.Cog):
         view.add_item(row4)
         await notifymsg.edit(embed = emb2, view=view)
 
+#Обновление канала со статусом Minecraft сервера
         statuschnl = await self.client.fetch_channel(939438241290022924) 
         statusmsg = await statuschnl.fetch_message(1126854219295641611)
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
