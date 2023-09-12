@@ -583,7 +583,7 @@ class GuildButtonClick(commands.Cog):
                             os.remove(f'guild_{ticket_name}.txt')
                             return
         if inter.component.custom_id == f"exit_santamonika":
-            name = ':coffee:1037730229487161354> `Санта-Моника`'
+            name = '<:coffee:1037730229487161354> `Санта-Моника`'
             ticket_name = 'santamonika'
             guildownerid = '622845283235135508'
 
