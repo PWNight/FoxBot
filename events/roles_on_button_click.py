@@ -19,7 +19,7 @@ class RolesButtonClick(commands.Cog):
         
         > 📹 — оповещения о новых видеороликах и стримах по проекту.
                              
-        > 🔓 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
+        > 📦 — доступ к категории с каналами #скриншоты и #игра предыдущих сезонов.''', colour = 0xecac4b)
         await ctx.send(embed=emb1)
         await ctx.send(embed=emb2)
 
