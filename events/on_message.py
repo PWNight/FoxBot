@@ -28,8 +28,6 @@ class On_message(commands.Cog):
           else:
               if message.author.bot:
                 return
-              if message.author.id == 660070694377357322:
-                return
               else:
                 delete = await message.reply(f'{message.author.mention}, идея должна начинаться с номера')
                 await message.delete()

@@ -50,24 +50,18 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
-#Santamonika
-        guardmsg = await guildchnl.fetch_message(1147963862625308782)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'santamonika', emoji= '<:coffee:1037730229487161354>')
-        viewverify=View()
-        viewverify.add_item(verify)
-        await guardmsg.edit(view=viewverify)   
-#Медная сакура
-        sakuramsg = await guildchnl.fetch_message(1137359003157012502)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'sakura', emoji= '⚙')
-        viewverify=View()
-        viewverify.add_item(verify)
-        await sakuramsg.edit(view=viewverify)   
 #Черный круг
         blackmsg = await guildchnl.fetch_message(1138522957539446964)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'black', emoji= '⚫')
         viewverify=View()
         viewverify.add_item(verify)
-        await blackmsg.edit(view=viewverify)   
+        await blackmsg.edit(view=viewverify)
+#БВДК
+        impermsg = await guildchnl.fetch_message(1137359003157012502)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'imperia', emoji= '✍️')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await impermsg.edit(view=viewverify)      
 
 #Обновление канала поддержки
         ticketchnl = await self.client.fetch_channel(939438939259949067) 
