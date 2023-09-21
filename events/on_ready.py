@@ -57,7 +57,7 @@ class OnReady(commands.Cog):
         viewverify.add_item(verify)
         await blackmsg.edit(view=viewverify)
 #БВДК
-        impermsg = await guildchnl.fetch_message(1137359003157012502)
+        impermsg = await guildchnl.fetch_message(1154459536644653126)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'imperia', emoji= '✍️')
         viewverify=View()
         viewverify.add_item(verify)
