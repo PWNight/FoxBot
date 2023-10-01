@@ -62,6 +62,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await impermsg.edit(view=viewverify)      
+#Гробовщики
+        grobmsg = await guildchnl.fetch_message(1158088404622397510)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'grob', emoji= '🫡')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await grobmsg.edit(view=viewverify)   
 
 #Обновление канала поддержки
         ticketchnl = await self.client.fetch_channel(939438939259949067) 

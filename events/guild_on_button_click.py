@@ -31,14 +31,14 @@ class GuildButtonClick(commands.Cog):
         guardroleid = '1128764905063985232'
         guardrole = discord.utils.get(guild.roles,id=int(guardroleid)) 
 
-        santamonikaroleid = '1147963942614876241'
-        santamonikarole = discord.utils.get(guild.roles,id=int(santamonikaroleid)) 
-
         imperiaroleid = '1154460696793325618'
         imperiarole = discord.utils.get(guild.roles,id=int(imperiaroleid)) 
 
         blackroleid = '1138523000984051782'
         blackrole = discord.utils.get(guild.roles,id=int(blackroleid)) 
+
+        grobroleid = '1138523000984051782'
+        grobrole = discord.utils.get(guild.roles,id=int(grobroleid)) 
 
 #Текстовая информация
         res = '<:minecraft_accept:1080779491875491882> Заявка отправлена. Ожидайте уведомления в открытом канале.'
@@ -99,13 +99,13 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if santamonikarole in memberop.roles:
-                    await inter.send(alreadyguild, ephemeral = True)
-                    return
                 if imperiarole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 if blackrole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
+                if grobrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 else:
@@ -361,7 +361,22 @@ class GuildButtonClick(commands.Cog):
                 await inter.send(resno, ephemeral = True)
                 return
             if not memberop.id in guildmembers:
+                if rolejapan in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
                 if roleavignon in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
+                if guardrole in memberop.roles:
+                    await inter.send(alreadythisguild, ephemeral = True)
+                    return
+                if imperiarole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
+                if blackrole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
+                if grobrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 else:
@@ -556,13 +571,13 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if santamonikarole in memberop.roles:
-                    await inter.send(alreadyguild, ephemeral = True)
-                    return
                 if imperiarole in memberop.roles:
                     await inter.send(alreadythisguild, ephemeral = True)
                     return
                 if blackrole in memberop.roles:
+                    await inter.send(alreadyguild, ephemeral = True)
+                    return
+                if grobrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 else:
@@ -699,14 +714,13 @@ class GuildButtonClick(commands.Cog):
                 if guardrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-                if santamonikarole in memberop.roles:
+                if imperiarole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
-
-                if imperiarole in memberop.roles:
+                if blackrole in memberop.roles:
                     await inter.send(alreadythisguild, ephemeral = True)
                     return
-                if blackrole in memberop.roles:
+                if grobrole in memberop.roles:
                     await inter.send(alreadyguild, ephemeral = True)
                     return
                 else:
