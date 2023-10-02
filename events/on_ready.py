@@ -195,8 +195,8 @@ class OnReady(commands.Cog):
                 await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
                 return
 
-    @tasks.loop(minutes = 0.2)
-    async def status_task(self):
+    @tasks.loop()
+    async def status_task(self) -> None:
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
         date = datetime.datetime.now(tzinfo)
@@ -225,6 +225,7 @@ class OnReady(commands.Cog):
             )
         view.add_item(row)
         await statusmsg.edit(embed = embed, view = view)
+        await asyncio.sleep(20)
 
 def setup(client):
     client.add_cog(OnReady(client))
