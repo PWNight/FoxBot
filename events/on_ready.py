@@ -166,9 +166,9 @@ class OnReady(commands.Cog):
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
         date = datetime.datetime.now(tzinfo)
-        embed = discord.Embed(title='Minecraft', description= '''VanillaPlus — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
-        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
-        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
+        embed = discord.Embed(title='Minecraft', colour = 0xadf36c)
+        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1158460340867190864/minecraft.png?ex=651c53c4&is=651b0244&hm=50b3e5288089a34ca01a869c5cade9b08d4e04f6547015b533d934f73527baf4&')
+        embed.add_field(name = 'IP:',value = f'mc.foxworld.ru',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
         embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
@@ -204,15 +204,15 @@ class OnReady(commands.Cog):
         guild = self.client.get_guild(921483461016031263)
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
-
+        
         statuschnl = await self.client.fetch_channel(939438241290022924) 
         statusmsg = await statuschnl.fetch_message(1126854219295641611)
         server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
         querystatus = server.query()
 
-        embed = discord.Embed(title='Minecraft', description= '''VanillaPlus — наш первый и основной сервер, основанный на строительстве и взаимодействиями между игроками.
-        Целью сервера является создание площадки для отдыха во внеурочное / внерабочее время и развития навыков строительства и коммуникации.''', colour = 0xadf36c)
-        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png')
+        embed = discord.Embed(title='Minecraft', colour = 0xadf36c)
+        embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1158460340867190864/minecraft.png?ex=651c53c4&is=651b0244&hm=50b3e5288089a34ca01a869c5cade9b08d4e04f6547015b533d934f73527baf4&')
+        embed.add_field(name = 'IP:',value = f'mc.foxworld.ru',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
         embed.add_field(name = 'Текущий онлайн:',value = f'{querystatus.players.online}/{querystatus.players.max}',inline = False)
         embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
