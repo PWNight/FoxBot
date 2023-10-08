@@ -2,9 +2,11 @@ import disnake as discord
 from disnake.ext import commands, tasks
 from disnake.ui import Button, View
 import time
+import asyncio
 from mcstatus import JavaServer 
 import datetime
 from datetime import timezone, timedelta
+from configs import config
 
 
 class OnReady(commands.Cog):
@@ -69,7 +71,7 @@ class OnReady(commands.Cog):
         viewverify.add_item(verify)
         await grobmsg.edit(view=viewverify)   
 
-#Обновление канала поддержки
+#ОБНОВЛЕНИЕ СООБЩЕНИЯ ПОДДЕРЖКИ
         ticketchnl = await self.client.fetch_channel(939438939259949067) 
         ticketmsg = await ticketchnl.fetch_message(1105549141922291782)
         emb = discord.Embed(description= '🔻 Выберите сервер, по которому желаете создать обращение', colour = 0x2f3136)
@@ -92,7 +94,7 @@ class OnReady(commands.Cog):
         view.add_item(row2)
         await ticketmsg.edit(embed = emb, view=view)
 
-#Обновление канала Верификации        
+#ОБНОВЛЕНИЕ СООБЩЕНИЯ ВЕРИФИКАЦИИ     
         verifychnl = await self.client.fetch_channel(1111325108217315368) 
         verifymsg = await verifychnl.fetch_message(1125044148890779720)
         emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку.', colour = 0x2f3136)
@@ -107,21 +109,7 @@ class OnReady(commands.Cog):
         view.add_item(row)
         await verifymsg.edit(embed = emb, view=view)
 
-#Обновление канала набора кадров
-        naborchnl = await self.client.fetch_channel(1126877107658707074) # ID канала, где при нажатии на реакцию создаётся тикет.
-        nabormsg = await naborchnl.fetch_message(1127575031682183290)
-        emb = discord.Embed(description= '🔻 Нажмите на кнопку ниже, чтобы подать заявку в команду проекта.', colour = 0x2f3136)
-        row = Button(
-                style = discord.ButtonStyle.blurple,
-                label = 'Подать заявку в команду',
-                custom_id = 'nabor_kadrov',
-                emoji= '<:message:1105891497255108679>'
-            )
-        view=View()
-        view.add_item(row)
-        await nabormsg.edit(embed = emb, view=view)
-
-#Обновление канала с уведомлениями
+#ОБНОВЛЕНИЕ СООБЩЕНИЯ С УВЕДОМЛЕНИЯМИ
         notifychnl = await self.client.fetch_channel(939438241290022924)
         notifymsg = await notifychnl.fetch_message(1107322507473723412)
         emb2 = discord.Embed(title='🔔 Уведомления и особые роли', description= '''> 📰 — оповещения о новостях проекта в канале <#939438314954588201>.
@@ -157,16 +145,25 @@ class OnReady(commands.Cog):
         view.add_item(row4)
         await notifymsg.edit(embed = emb2, view=view)
 
-#Обновление канала со статусом Minecraft сервера
-        statuschnl = await self.client.fetch_channel(939438241290022924) 
-        statusmsg = await statuschnl.fetch_message(1126854219295641611)
-        server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
-        querystatus = server.query()
-
+#ОБНОВЛЕНИЕ ДИСКОРД И МАЙНКРАФТ СТАТИСТИКИ
+        #ОБЪЯВЛЕНИЕ ВРЕМЕННОЙ ЗОНЫ
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
         date = datetime.datetime.now(tzinfo)
+        
+        #ОБЪЯВЛЕНИЕ ГИЛЬДИИ, КАНАЛОВ И СООБЩЕНИЙ
+        guild = self.client.get_guild(921483461016031263)
+        statuschnl = await self.client.fetch_channel(939438241290022924) 
+        statusmsg = await statuschnl.fetch_message(1160646621953003642)
+        phoenix = await self.client.fetch_user(660070694377357322)
+        channelstats = self.client.get_channel(939438241290022924)
+        msgstats = await channelstats.fetch_message(1160646594841022535)
+        
+        server = JavaServer(host="135.181.126.159", port=25566)
+        querystatus = server.query()
+
         embed = discord.Embed(title='Minecraft', colour = 0xadf36c)
+        embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1158460340867190864/minecraft.png?ex=651c53c4&is=651b0244&hm=50b3e5288089a34ca01a869c5cade9b08d4e04f6547015b533d934f73527baf4&')
         embed.add_field(name = 'IP:',value = f'mc.foxworld.ru',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
@@ -181,6 +178,20 @@ class OnReady(commands.Cog):
             )
         view.add_item(row)
         await statusmsg.edit(embed = embed, view = view)
+
+        onl = sum(1 for m in guild.members if m.status == discord.Status.online)
+        idl = sum(1 for m in guild.members if m.status == discord.Status.idle)
+        dnd = sum(1 for m in guild.members if m.status == discord.Status.dnd)
+        ofl = sum(1 for m in guild.members if m.status == discord.Status.offline)
+        embed = discord.Embed(title='Discord', description='**https://discord.gg/2yyeWQ5unZ** - вечная ссылка-приглашение.', color = 0x58b9ff)
+        embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
+        embed.add_field(name='Участники', value=f'В сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\nВсего ━ {len(guild.members)}')
+        embed.add_field(name='Активность', value=f'{config.onl}  ━ {onl}\n{config.idl} ━ {idl}\n{config.dnd} ━ {dnd}\n{config.off}  ━ {ofl}')
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/686901894345523219/695933141508030474/concours-discord-cartes-voeux-fortnite-france-6.png")
+        embed.add_field(name='Каналы',value=f'Категории ━ {len(guild.categories)}\nТекстовые ━ {len(guild.text_channels)}\nГолосовые ━ {len(guild.voice_channels)}\nВсего ━ {len(guild.channels)}')
+        embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
+        await msgstats.edit(embed=embed)
+
         self.status_task.start()   
 
     @commands.Cog.listener()
@@ -194,23 +205,47 @@ class OnReady(commands.Cog):
                 status.players = '\n'.join(status.players.names)
                 await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
                 return
+    @commands.Cog.listener()
+    async def on_voice_state_update(self, member, before, after):
+        if after.channel != None:
+            if after.channel.id == 939438574493896704:
+                category = after.channel.category
+                
+                channel2 = await member.guild.create_voice_channel(
+                    name     = f' Комната { member.display_name }', 
+                    category = category
+                )
+                
+                await channel2.set_permissions(member, connect = True, mute_members = True, move_members = True, manage_channels = True)
+                await member.move_to(channel2)
+    
+                def check(x, y, z): return len(channel2.members) == 0
+                
+                await self.client.wait_for('voice_state_update',check=check)
+                await channel2.delete()
 
     @tasks.loop()
     async def status_task(self) -> None:
+        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+
+        #ОБЪЯВЛЕНИЕ ВРЕМЕННОЙ ЗОНЫ
         timezone_offset = +3.0  # Pacific Standard Time (UTC+03:00)
         tzinfo = timezone(timedelta(hours=timezone_offset))
         date = datetime.datetime.now(tzinfo)
         
+        #ОБЪЯВЛЕНИЕ ГИЛЬДИИ, КАНАЛОВ И СООБЩЕНИЙ
         guild = self.client.get_guild(921483461016031263)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
-        
         statuschnl = await self.client.fetch_channel(939438241290022924) 
-        statusmsg = await statuschnl.fetch_message(1126854219295641611)
-        server = JavaServer(host="135.181.126.159", port=25566) #MinecraftServer.lookup("135.181.126.159:25566")
+        statusmsg = await statuschnl.fetch_message(1160646621953003642)
+        phoenix = await self.client.fetch_user(660070694377357322)
+        channelstats = self.client.get_channel(939438241290022924)
+        msgstats = await channelstats.fetch_message(1160646594841022535)
+        
+        server = JavaServer(host="135.181.126.159", port=25566)
         querystatus = server.query()
 
         embed = discord.Embed(title='Minecraft', colour = 0xadf36c)
+        embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
         embed.set_thumbnail(url=f'https://cdn.discordapp.com/attachments/1053188377651970098/1158460340867190864/minecraft.png?ex=651c53c4&is=651b0244&hm=50b3e5288089a34ca01a869c5cade9b08d4e04f6547015b533d934f73527baf4&')
         embed.add_field(name = 'IP:',value = f'mc.foxworld.ru',inline = False)
         embed.add_field(name = 'Версия:',value = f'{querystatus.software.version}',inline = False)
@@ -225,6 +260,21 @@ class OnReady(commands.Cog):
             )
         view.add_item(row)
         await statusmsg.edit(embed = embed, view = view)
+
+        onl = sum(1 for m in guild.members if m.status == discord.Status.online)
+        idl = sum(1 for m in guild.members if m.status == discord.Status.idle)
+        dnd = sum(1 for m in guild.members if m.status == discord.Status.dnd)
+        ofl = sum(1 for m in guild.members if m.status == discord.Status.offline)
+        embed = discord.Embed(title='Discord', description='**https://discord.gg/2yyeWQ5unZ** - вечная ссылка-приглашение.', color = 0x58b9ff)
+        embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
+        embed.add_field(name='Участники', value=f'В сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\nВсего ━ {len(guild.members)}')
+        embed.add_field(name='Активность', value=f'{config.onl}  ━ {onl}\n{config.idl} ━ {idl}\n{config.dnd} ━ {dnd}\n{config.off}  ━ {ofl}')
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/686901894345523219/695933141508030474/concours-discord-cartes-voeux-fortnite-france-6.png")
+        embed.add_field(name='Каналы',value=f'Категории ━ {len(guild.categories)}\nТекстовые ━ {len(guild.text_channels)}\nГолосовые ━ {len(guild.voice_channels)}\nВсего ━ {len(guild.channels)}')
+        embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
+        await msgstats.edit(embed=embed)
+        
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
         await asyncio.sleep(20)
 
 def setup(client):
