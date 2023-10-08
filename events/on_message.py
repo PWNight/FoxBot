@@ -14,6 +14,7 @@ class On_message(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         channel = message.channel
+
         if channel.id == 939438314954588201: #Новости
           await message.add_reaction("👍")  
           await message.add_reaction("👎")
@@ -33,8 +34,6 @@ class On_message(commands.Cog):
                 await message.delete()
                 await asyncio.sleep(30)
                 await delete.delete()
-        if channel.id == 880866817269190716: #Новые участники
-          await message.add_reaction("👋")  
 
 
 def setup(client):

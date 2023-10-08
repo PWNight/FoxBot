@@ -2,13 +2,9 @@ import disnake as discord
 from disnake.ext import commands
 from os import listdir
 from util.logger import Logger
-from api.check import utils
 from api.server import main
 from configs import config
 
-# ? ------------------------
-# ? | SETUP DISCORD CLIENT |
-# ? ------------------------
 
 intents = discord.Intents.default()
 intents.presences = True
@@ -21,10 +17,6 @@ client = commands.Bot(
     help_command = None,
     intents = discord.Intents.all()
 )
-
-# ? ----------------
-# ? | LOADING COGS |
-# ? ----------------
 
 for filename in listdir("./commands/"):
     if filename.endswith(".py"):
@@ -39,78 +31,9 @@ for filename in listdir("./events/"):
     if filename.endswith(".py"):
         client.load_extension(f"events.{filename[:-3]}")
     
-# * ----------------
-
-@client.command()
-@utils.developer()
-async def cmdload(ctx, extension):
-    client.load_extension(f"commands.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Команда `{extension}` была включена."))
-
-
-@client.command()
-@utils.developer()
-async def cmdunload(ctx, extension):
-    client.unload_extension(f"commands.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Команда `{extension}` была отключена."))
-
-
-@client.command()
-@utils.developer()
-async def cmdreload(ctx, extension):
-    client.reload_extension(f"commands.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Команда `{extension}` была перезагружена."))
-
-# * ----------------
-
-@client.command()
-@utils.developer()
-async def eload(ctx, extension):
-    client.load_extension(f"events.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Событие `{extension}` было включено."))
-
-@client.command()
-@utils.developer()
-async def eunload(ctx, extension):
-    client.unload_extension(f"events.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Событие `{extension}` было отключено."))
-
-@client.command()
-@utils.developer()
-async def ereload(ctx, extension):
-    client.reload_extension(f"events.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Событие `{extension}` было перезагружено."))
-
-# * ----------------
-
-@client.command()
-@utils.developer()
-async def lload(ctx, extension):
-    client.load_extension(f"logs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Лог `{extension}` был загружен."))
-
-@client.command()
-@utils.developer()
-async def lunload(ctx, extension):
-    client.unload_extension(f"logs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Лог `{extension}` был отключен."))
-
-@client.command()
-@utils.developer()
-async def lreload(ctx, extension):
-    client.reload_extension(f"logs.{extension}")
-    await ctx.reply(embed = main.done(ctx.guild, f"Лог `{extension}` был  перезагружен."))
-
-# ? -----------------
-# ? | UTIL CATEGORY |
-# ? -----------------
-
 client.version = config.version
 client.logger = Logger
 client.config = config
 
-# ? --------------------
-# ? | BOT REGISTRATION |
-# ? --------------------
 
 client.run(config.token)
