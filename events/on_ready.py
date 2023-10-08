@@ -212,7 +212,7 @@ class OnReady(commands.Cog):
                 category = after.channel.category
                 
                 channel2 = await member.guild.create_voice_channel(
-                    name     = f' Комната { member.display_name }', 
+                    name = f' Комната { member.display_name }', 
                     category = category
                 )
                 
