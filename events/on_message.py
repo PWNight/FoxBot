@@ -21,6 +21,13 @@ class On_message(commands.Cog):
         if channel.id == 1100414892609130527: #Анонсы
           await message.add_reaction("👍")  
           await message.add_reaction("👎")
+        if channel.id == 1108823871815163924: #staff-опросы
+              await message.add_reaction("<:minecraft_accept:1080779491875491882>")  
+              await message.add_reaction("<:minecraft_deny:1080779495386140684>")
+        if channel.id == 1151168366661357698: #Идеи
+          if message.content.startswith('#'):
+              await message.add_reaction("<:minecraft_accept:1080779491875491882>")  
+              await message.add_reaction("<:minecraft_deny:1080779495386140684>")
         if channel.id == 1151168366661357698: #Идеи
           if message.content.startswith('#'):
               await message.add_reaction("<:minecraft_accept:1080779491875491882>")  
