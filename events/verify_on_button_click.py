@@ -41,22 +41,28 @@ class VerifyButtonClick(commands.Cog):
                     components=[
                         discord.ui.TextInput(
                             label="Ваш никнейм",
-                            placeholder="Никнейм на котором будете играть",
+                            placeholder="Укажите ваш игровой никнейм.",
                             custom_id="Никнейм",
                             style=TextInputStyle.short,
                             max_length=16,
                         ),
                         discord.ui.TextInput(
                             label="Ваш возраст",
-                            placeholder="Укажите ваш возраст",
+                            placeholder="Укажите ваш возраст.",
                             custom_id="Возраст",
                             style=TextInputStyle.short,
                             max_length=2,
                         ),
                         discord.ui.TextInput(
                             label="Расскажите немного о себе",
-                            placeholder="Это необходимо для знакомства с вами",
+                            placeholder="Напишите краткое описание вас и ваших увлечений.",
                             custom_id="Об игроке",
+                            style=TextInputStyle.paragraph,
+                        ),
+                        discord.ui.TextInput(
+                            label="Где вы узнали о нашем сервере?",
+                            placeholder="Укажите социальную сеть или мониторинг.",
+                            custom_id="Откуда игрок",
                             style=TextInputStyle.paragraph,
                         ),
                         discord.ui.TextInput(
