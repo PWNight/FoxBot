@@ -4,7 +4,7 @@ token = 'OTIxNDgyMzc3NTA1NjczMjY3.G3wvA3.g-f_A0XqVkRd3tK0KwcxZLeDjY5GTS1TWeXKxw'
 # OTQyMzc2Mzg3ODMzMTA2NDUy.YgjmZw.6WA7I1R4ZIBZZmXdvgpD_szowSE | Phoenix Annonces
 # OTIxNDgyMzc3NTA1NjczMjY3.G3wvA3.g-f_A0XqVkRd3tK0KwcxZLeDjY5GTS1TWeXKxw | Phoenix
 # MTAxMDgwNTM0MDU3NDU5NzE4Mg.GQFZI6.W7_EOmgRqvNBqidBXjG2sZ6WBwzjoInrFX4IJA | Phoenix Beta
-version = '5.2.1' # Версия бота
+version = 'PRE-5.3' # Версия бота
 developer = 'PWNight'
 
 # База-данных
