@@ -52,12 +52,6 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await guardmsg.edit(view=viewverify)   
-#Черный круг
-        blackmsg = await guildchnl.fetch_message(1138522957539446964)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'black', emoji= '⚫')
-        viewverify=View()
-        viewverify.add_item(verify)
-        await blackmsg.edit(view=viewverify)
 #БВДК
         impermsg = await guildchnl.fetch_message(1154459536644653126)
         verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'imperia', emoji= '✍️')
@@ -202,7 +196,7 @@ class OnReady(commands.Cog):
             if status.players.online == 0:
                 await inter.send('<:member:979406123587223562> **Список игроков:** \nНа сервере нету игроков.', ephemeral = True)
             else:
-                status.players = '\n'.join(status.players.names)
+                status.players = '\n '.join(status.players.names)
                 await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
                 return
     @commands.Cog.listener()
@@ -224,7 +218,7 @@ class OnReady(commands.Cog):
                 await self.client.wait_for('voice_state_update',check=check)
                 await channel2.delete()
 
-    @tasks.loop()
+    @tasks.loop(seconds=30)
     async def status_task(self) -> None:
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
