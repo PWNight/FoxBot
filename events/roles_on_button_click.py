@@ -64,9 +64,9 @@ class RolesButtonClick(commands.Cog):
                 await memberop.add_roles(newsrole)
                 await inter.send(resyes, ephemeral = True)
         if inter.component.custom_id == "discord_news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1147216415720480890> выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1147216415720480890> снята.'
-            discordnewsrole = discord.utils.get(guild.roles, id=1147216415720480890)
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191584590549052> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191584590549052> снята.'
+            discordnewsrole = discord.utils.get(guild.roles, id=1095191584590549052)
             if discordnewsrole in memberop.roles:
                 await memberop.remove_roles(discordnewsrole)
                 await inter.send(resno, ephemeral = True)
