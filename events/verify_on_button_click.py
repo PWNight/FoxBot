@@ -124,6 +124,7 @@ class VerifyButtonClick(commands.Cog):
                                     rcon.command(f'easywl add {inter.text_values["Никнейм"]}')
                                     rcon.command(f'Добавление игрока в вайтлист')
                                     rcon.stop()
+                                await memberop.edit(nick=f'{inter.text_values["Никнейм"]}')
                                 embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка пользователя {memberop.mention} ({memberop.display_name}) \n\n**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята \n**Принял заявку:** {m.author.mention}", color = 0x2f3136)
                                 for key, value in inter.text_values.items():
                                     embinfo.add_field(name=key.capitalize(), value=value[:1024], inline=False)  
