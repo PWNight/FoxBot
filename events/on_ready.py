@@ -196,8 +196,8 @@ class OnReady(commands.Cog):
             if status.players.online == 0:
                 await inter.send('<:member:979406123587223562> **Список игроков:** \nНа сервере нету игроков.', ephemeral = True)
             else:
-                status.players = '\n '.join(status.players.names)
-                await inter.send(f'<:member:979406123587223562> **Список игроков:** \n{status.players}', ephemeral = True)
+                status.players = '`\n* `'.join(status.players.names)
+                await inter.send(f'<:member:979406123587223562> **Список игроков:** \n* `{status.players}`', ephemeral = True)
                 return
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, before, after):
