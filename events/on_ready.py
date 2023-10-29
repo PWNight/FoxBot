@@ -186,7 +186,7 @@ class OnReady(commands.Cog):
         embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         await msgstats.edit(embed=embed)
 
-        self.status_task.start()   
+        await self.status_task.start()
 
     @commands.Cog.listener()
     async def on_button_click(self, inter):
@@ -219,7 +219,7 @@ class OnReady(commands.Cog):
                 await channel2.delete()
 
     @tasks.loop(seconds=30)
-    async def status_task(self) -> None:
+    async def status_task(self):
         #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
 
         #ОБЪЯВЛЕНИЕ ВРЕМЕННОЙ ЗОНЫ
@@ -269,7 +269,6 @@ class OnReady(commands.Cog):
         await msgstats.edit(embed=embed)
         
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        await asyncio.sleep(20)
 
 def setup(client):
     client.add_cog(OnReady(client))
