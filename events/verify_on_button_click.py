@@ -68,7 +68,7 @@ class VerifyButtonClick(commands.Cog):
                             ),
                             discord.ui.TextInput(
                                 label="Где вы узнали о нашем сервере?",
-                                placeholder="Укажите социальную сеть или мониторинг.",
+                                placeholder="Укажите соц.сеть, мониторинг или никнейм пригласившего.",
                                 custom_id="Откуда игрок",
                                 style=TextInputStyle.paragraph,
                             ),
@@ -122,7 +122,6 @@ class VerifyButtonClick(commands.Cog):
                                 rcon = RCONClient(HOST, port = PORT)
                                 if rcon.login('59d82888-5420-43b9-a58b-98c382061602'):
                                     rcon.command(f'easywl add {inter.text_values["Никнейм"]}')
-                                    rcon.command(f'Добавление игрока в вайтлист')
                                     rcon.stop()
                                 await memberop.edit(nick=f'{inter.text_values["Никнейм"]}')
                                 embinfo = discord.Embed(description=f"<:invite:1105878276242673725> Заявка пользователя {memberop.mention} ({memberop.display_name}) \n\n**Статус заявки:** <:minecraft_accept:1080779491875491882> Принята \n**Принял заявку:** {m.author.mention}", color = 0x2f3136)
