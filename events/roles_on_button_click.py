@@ -31,8 +31,8 @@ class RolesButtonClick(commands.Cog):
         anoncerole = discord.utils.get(guild.roles, id=1095191584590549052)
 
         if inter.component.custom_id == "news":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739 > выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191555972804739 > снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&1095191555972804739> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&1095191555972804739> снята.'
             newsrole = discord.utils.get(guild.roles, id=1095191555972804739 )
             if newsrole in memberop.roles:
                 await memberop.remove_roles(newsrole)
@@ -56,8 +56,8 @@ class RolesButtonClick(commands.Cog):
         #        await inter.send(resyes, ephemeral = True)
 
         if inter.component.custom_id == "events":
-            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926 > выдана.'
-            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926 > снята.'
+            resyes = '<a:phoenix_toggleon:953725340042293369> Роль <@&951475369041616926> выдана.'
+            resno = '<a:phoenix_toggleoff:953725338347782145> Роль <@&951475369041616926> снята.'
             eventrole = discord.utils.get(guild.roles, id=951475369041616926  )
             if eventrole in memberop.roles:
                 await memberop.remove_roles(eventrole)
