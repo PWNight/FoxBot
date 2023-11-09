@@ -13,6 +13,8 @@ class give_foxplus(commands.Cog):
     async def avatar(self, inter, member: discord.Member, time: int, type: str):
         HOST = '135.181.126.159';
         PORT = 25571;
+        foxplusroleid = '1172204202328592455'
+        foxplusrole = discord.utils.get(guild.roles,id=int(foxplusroleid)) 
         rcon = RCONClient(HOST, port = PORT);
         notifychnl = await self.client.fetch_channel(1111753012441006201)
         buylogchnl = await self.client.fetch_channel(1130119557126832259)
@@ -29,6 +31,7 @@ class give_foxplus(commands.Cog):
         if rcon.login('59d82888-5420-43b9-a58b-98c382061602'):
             rcon.command(f'lp user {member.nick} parent addtemp foxplus {time}mo');
             rcon.stop();
+            await member.add_roles(foxplusrole)
         if type == 'buy':
             responce = discord.Embed(description=f'{member.mention} приобрёл FoxPlus на {time} {month}.', colour = 0xfc9d53)
             responce.set_author(name=f"{member.nick}",icon_url=f"{member.avatar}")
