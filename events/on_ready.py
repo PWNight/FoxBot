@@ -151,6 +151,8 @@ class OnReady(commands.Cog):
         phoenix = await self.client.fetch_user(660070694377357322)
         channelstats = self.client.get_channel(939438241290022924)
         msgstats = await channelstats.fetch_message(1160646594841022535)
+        playerroleid = '1172204202328592455'
+        playerrole = discord.utils.get(guild.roles,id=int(playerroleid)) 
         
         server = JavaServer(host="135.181.126.159", port=25566)
         querystatus = server.query()
@@ -178,7 +180,7 @@ class OnReady(commands.Cog):
         ofl = sum(1 for m in guild.members if m.status == discord.Status.offline)
         embed = discord.Embed(title='Discord', description='**https://discord.gg/2yyeWQ5unZ** - вечная ссылка-приглашение.', color = 0x58b9ff)
         embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
-        embed.add_field(name='Участники', value=f'В сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\nВсего ━ {len(guild.members)}')
+        embed.add_field(name='Участники', value=f'\nВсего ━ {len(guild.members)}\nВ сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\n<@&1172204202328592455> ━ {len(playerrole.members)}')
         embed.add_field(name='Активность', value=f'{config.onl}  ━ {onl}\n{config.idl} ━ {idl}\n{config.dnd} ━ {dnd}\n{config.off}  ━ {ofl}')
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/686901894345523219/695933141508030474/concours-discord-cartes-voeux-fortnite-france-6.png")
         embed.add_field(name='Каналы',value=f'Категории ━ {len(guild.categories)}\nТекстовые ━ {len(guild.text_channels)}\nГолосовые ━ {len(guild.voice_channels)}\nВсего ━ {len(guild.channels)}')
@@ -233,6 +235,8 @@ class OnReady(commands.Cog):
         phoenix = await self.client.fetch_user(660070694377357322)
         channelstats = self.client.get_channel(939438241290022924)
         msgstats = await channelstats.fetch_message(1160646594841022535)
+        playerroleid = '1172204202328592455'
+        playerrole = discord.utils.get(guild.roles,id=int(playerroleid)) 
         
         server = JavaServer(host="135.181.126.159", port=25566)
         querystatus = server.query()
@@ -260,7 +264,7 @@ class OnReady(commands.Cog):
         ofl = sum(1 for m in guild.members if m.status == discord.Status.offline)
         embed = discord.Embed(title='Discord', description='**https://discord.gg/2yyeWQ5unZ** - вечная ссылка-приглашение.', color = 0x58b9ff)
         embed.set_author(name=f'Найт',icon_url=f'{phoenix.display_avatar.url}')
-        embed.add_field(name='Участники', value=f'В сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\nВсего ━ {len(guild.members)}')
+        embed.add_field(name='Участники', value=f'\nВсего ━ {len(guild.members)}\nВ сети ━ {len({m.id for m in guild.members if m.status is not discord.Status.offline})}\n<@&1172204202328592455> ━ {len(playerrole.members)}')
         embed.add_field(name='Активность', value=f'{config.onl}  ━ {onl}\n{config.idl} ━ {idl}\n{config.dnd} ━ {dnd}\n{config.off}  ━ {ofl}')
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/686901894345523219/695933141508030474/concours-discord-cartes-voeux-fortnite-france-6.png")
         embed.add_field(name='Каналы',value=f'Категории ━ {len(guild.categories)}\nТекстовые ━ {len(guild.text_channels)}\nГолосовые ━ {len(guild.voice_channels)}\nВсего ━ {len(guild.channels)}')
