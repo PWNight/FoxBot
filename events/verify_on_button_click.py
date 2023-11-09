@@ -19,8 +19,8 @@ class VerifyButtonClick(commands.Cog):
         logchannel = self.client.get_channel(1126156262216843394) # ID канала с логами.
         memberop = inter.author
         guild = self.client.get_guild(921483461016031263)
-        role = discord.utils.get(guild.roles, id=1131924719902400554)
-        playerroleid = '1131924719902400554'
+        role = discord.utils.get(guild.roles, id=1172204202328592455)
+        playerroleid = '1172204202328592455'
         playerrole = discord.utils.get(guild.roles,id=int(playerroleid)) 
         
         #Текстовая информация для тикетов.
