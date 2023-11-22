@@ -23,14 +23,14 @@ class OnReady(commands.Cog):
 
         guild = self.client.get_guild(921483461016031263)
 
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
-        #await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за тех. работами"))
+        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        await self.client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name=f"за вами"))
 
         guildchnl = await self.client.fetch_channel(991247514495885393)
 #Новая организация
         newmsg = await guildchnl.fetch_message(1045046216989343834)
-        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'newguild', emoji= '<:invite:1105878276242673725>')
-        #verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'maintenance_guild', emoji= '<:invite:1105878276242673725>') #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
+        #verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'newguild', emoji= '<:invite:1105878276242673725>')
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'maintenance_guild', emoji= '<:invite:1105878276242673725>') #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
         viewverify=View()
         viewverify.add_item(verify)
         await newmsg.edit(view=viewverify) 
@@ -72,15 +72,15 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Discord',
-                #custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! 
-                custom_id = 'discord_openticket',
+                custom_id = 'maintenance_dc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! 
+                #custom_id = 'discord_openticket',
                 emoji= '<:discord:856561477033263124>'
             )
         row2 = Button(
                 style = discord.ButtonStyle.green,
                 label = 'Minecraft',
-                #custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
-                custom_id = 'minecraft_openticket',
+                custom_id = 'maintenance_mc', #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!! ,
+                #custom_id = 'minecraft_openticket',
                 emoji= '<:minecraft:856561476873355316>'
             )
         view=View()
@@ -95,8 +95,8 @@ class OnReady(commands.Cog):
         row = Button(
                 style = discord.ButtonStyle.blurple,
                 label = 'Подать заявку',
-                custom_id = 'verify', #verify #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!!
-                #custom_id = 'maintenance'
+                #custom_id = 'verify', #verify #НЕ ЗАБЫТЬ МЕНЯТЬ ОБРАТНО ПОСЛЕ ТЕХНИЧЕСКИХ РАБОТ!!!
+                custom_id = 'maintenance',
                 emoji= '<:message:1105891497255108679>'
             )
         view=View()
@@ -271,7 +271,7 @@ class OnReady(commands.Cog):
         embed.set_footer(text=f"Статистика обновлена {date.strftime('%d.%m в %H:%M')}", icon_url="https://cdn.discordapp.com/attachments/1053188377651970098/1126862804150931487/Fox5.png")
         await msgstats.edit(embed=embed)
         
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
+        #await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"за {guild.member_count} участниками"))
 
 def setup(client):
     client.add_cog(OnReady(client))
