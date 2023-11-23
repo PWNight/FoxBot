@@ -64,6 +64,12 @@ class OnReady(commands.Cog):
         viewverify=View()
         viewverify.add_item(verify)
         await grobmsg.edit(view=viewverify)   
+#ОНРОП
+        onropmsg = await guildchnl.fetch_message(1177299854817501255)
+        verify = Button(style = discord.ButtonStyle.grey, label = 'Подать заявку', custom_id = 'onrop', emoji= '🌲')
+        viewverify=View()
+        viewverify.add_item(verify)
+        await onropmsg.edit(view=viewverify) 
 
 #ОБНОВЛЕНИЕ СООБЩЕНИЯ ПОДДЕРЖКИ
         ticketchnl = await self.client.fetch_channel(939438939259949067) 
