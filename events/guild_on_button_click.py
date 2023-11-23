@@ -51,11 +51,15 @@ class GuildButtonClick(commands.Cog):
         nhtrhtrjtremb1 = discord.Embed(title='Когда мне ответят?', description="Время рассмотрения заявки зависит от главы организации, но обычно заявки рассматриваются в течение дня.", color = 0x2f3136)
         embed3 = discord.Embed(title='', description='<:info:871310064135327775> Заявки на вступление рассматриваются главой организации с помощью кнопок ниже.', color = 0x2f3136)
         maintenance = '<:minecraft_deny:1080779495386140684> Служба создания организаций временно недоступна.** \nПричина: проведение технических работ. \nВ ближайшее время данная служба будет восстановлена.'
+        closed = '<:minecraft_deny:1080779495386140684> **Служба создания организаций прекратила свою работу до начала следующего сезона.**'
 #Временное отключение организации
         if inter.component.custom_id == "error":
             await inter.send(error, ephemeral = True)
         if inter.component.custom_id == "maintenance_guild":
             await inter.send(maintenance, ephemeral = True)
+            return 
+        if inter.component.custom_id == "guild_closed":
+            await inter.send(closed, ephemeral = True)
             return 
 #Япония
         if inter.component.custom_id == "japan":
